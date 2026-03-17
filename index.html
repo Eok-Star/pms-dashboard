@@ -1,90 +1,115 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>링크솔루션 PMS 대시보드</title>
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Malgun Gothic','Segoe UI',sans-serif;background:#F1F5F9;color:#1E293B}.hdr{background:linear-gradient(135deg,#0F2044,#1B6FD8);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}.hdr h1{font-size:20px;letter-spacing:1px}.hdr .sub{font-size:12px;color:#94A3C8;margin-top:2px}.badge{background:#10B981;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-left:8px}.wrap{max-width:1400px;margin:0 auto;padding:18px 22px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:16px}.cd{background:#fff;border-radius:10px;padding:16px 18px;border-left:5px solid #1B6FD8;box-shadow:0 1px 4px rgba(0,0,0,.05)}.cd .lb{font-size:12px;color:#64748B;font-weight:600}.cd .vl{font-size:26px;font-weight:700;margin-top:3px}.cd.g{border-left-color:#10B981}.cd.g .vl{color:#10B981}.cd.r{border-left-color:#EF4444}.cd.r .vl{color:#EF4444}.cd.p{border-left-color:#8B5CF6}.cd.p .vl{color:#8B5CF6}.cd.b .vl{color:#1B6FD8}.sp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}.sc{background:#fff;border-radius:10px;padding:16px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.05)}.sc h3{font-size:14px;font-weight:700;margin-bottom:6px}.sc .n{font-size:20px;font-weight:700}.sc .k{font-size:15px;font-weight:600;margin-top:2px}.sc.dom{border-top:4px solid #1B6FD8}.sc.dom h3,.sc.dom .k{color:#1B6FD8}.sc.fgn{border-top:4px solid #00ACC1}.sc.fgn h3,.sc.fgn .k{color:#00ACC1}.sec{background:#fff;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.05)}.st{font-size:15px;font-weight:700;color:#0F2044;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid #E2E8F0}.cr{display:grid;grid-template-columns:1fr 1.8fr;gap:16px;align-items:start}table{width:100%;border-collapse:collapse;font-size:12px}th{background:#1A2E55;color:#fff;padding:7px 8px;font-weight:600}td{padding:6px 8px;border-bottom:1px solid #E2E8F0;text-align:center}tr:nth-child(even){background:#F8FAFC}.mn{text-align:right;font-weight:600;color:#1B6FD8}.tot{background:#1A2E55!important;color:#fff!important;font-weight:700}.tot td{color:#fff!important;border:none}.utbl{max-height:420px;overflow-y:auto;border-radius:8px}canvas{max-height:320px}@media(max-width:768px){.cr{grid-template-columns:1fr}.sp{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}}</style></head>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Malgun Gothic','Segoe UI',sans-serif;background:#F1F5F9;color:#1E293B}
+.hdr{background:linear-gradient(135deg,#0F2044,#1B6FD8);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.hdr h1{font-size:20px;letter-spacing:1px}.hdr .sub{font-size:12px;color:#94A3C8;margin-top:2px}
+.badge{background:#10B981;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-left:8px}
+.wrap{max-width:1400px;margin:0 auto;padding:18px 22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:16px}
+.cd{background:#fff;border-radius:10px;padding:16px 18px;border-left:5px solid #1B6FD8;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.cd .lb{font-size:12px;color:#64748B;font-weight:600}.cd .vl{font-size:26px;font-weight:700;margin-top:3px}
+.cd.g{border-left-color:#10B981}.cd.g .vl{color:#10B981}
+.cd.r{border-left-color:#EF4444}.cd.r .vl{color:#EF4444}
+.cd.p{border-left-color:#8B5CF6}.cd.p .vl{color:#8B5CF6}
+.cd.b .vl{color:#1B6FD8}
+.sp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.sc{background:#fff;border-radius:10px;padding:16px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.sc h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.sc .n{font-size:20px;font-weight:700}.sc .k{font-size:15px;font-weight:600;margin-top:2px}
+.sc.dom{border-top:4px solid #1B6FD8}.sc.dom h3,.sc.dom .k{color:#1B6FD8}
+.sc.fgn{border-top:4px solid #00ACC1}.sc.fgn h3,.sc.fgn .k{color:#00ACC1}
+.sec{background:#fff;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.st{font-size:15px;font-weight:700;color:#0F2044;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid #E2E8F0}
+.cr{display:grid;grid-template-columns:1fr 1.8fr;gap:16px;align-items:start}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#1A2E55;color:#fff;padding:7px 8px;font-weight:600;white-space:nowrap}
+td{padding:6px 8px;border-bottom:1px solid #E2E8F0;text-align:center;white-space:nowrap}
+tr:nth-child(even){background:#F8FAFC}
+.mn{text-align:right;font-weight:600;color:#1B6FD8}
+.tot{background:#1A2E55!important;color:#fff!important;font-weight:700}
+.tot td{color:#fff!important;border:none}
+.dm-wrap{overflow-x:auto;border-radius:8px}
+canvas{max-height:320px}
+@media(max-width:768px){.cr{grid-template-columns:1fr}.sp{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}}</style>
+</head>
 <body>
-<div class="hdr"><div><h1>링크솔루션 PMS 대시보드 <span class="badge">LIVE</span></h1><div class="sub">최종 업데이트: 2026-03-17 14:34  |  2026년</div></div></div>
+<div class="hdr"><div><h1>링크솔루션 PMS 대시보드 <span class="badge">LIVE</span></h1><div class="sub">최종 업데이트: 2026-03-17 14:47  |  2026년</div></div></div>
 <div class="wrap">
-<div class="cards"><div class="cd b"><div class="lb">총 품의건수</div><div class="vl">334건</div></div><div class="cd g"><div class="lb">결제완료</div><div class="vl">202건</div></div><div class="cd r"><div class="lb">미결제</div><div class="vl">132건</div></div><div class="cd p"><div class="lb">총 집행금액</div><div class="vl">₩5,373,732,987</div></div></div>
-<div class="sp"><div class="sc dom"><h3>국내 구매</h3><div class="n">301건</div><div class="k">₩2,692,653,289</div></div><div class="sc fgn"><h3>해외 구매</h3><div class="n">33건</div><div class="k">₩2,681,079,698</div></div></div>
-<div class="sec"><div class="st">월별 구매현황 (KRW)</div><div class="cr"><div><table><thead><tr><th>월</th><th>건수</th><th>KRW 합계</th></tr></thead><tbody id="tm"></tbody><tfoot id="tmf"></tfoot></table></div><div><canvas id="cm"></canvas></div></div></div>
-<div class="sec"><div class="st">부서별 구매현황 (KRW)</div><div class="cr"><div><table><thead><tr><th>부서</th><th>건수</th><th>KRW 합계</th></tr></thead><tbody id="td"></tbody><tfoot id="tdf"></tfoot></table></div><div><canvas id="cd2"></canvas></div></div></div>
-<div class="sec"><div class="st">항목분류별 구매현황</div><div class="cr"><div><table><thead><tr><th>항목</th><th>건수</th><th>KRW 합계</th><th>비율</th></tr></thead><tbody id="ti"></tbody><tfoot id="tif"></tfoot></table></div><div><canvas id="ci"></canvas></div></div></div>
-<div class="sec"><div class="st">미결제 현황 (전체 132건)</div><div class="utbl"><table><thead><tr><th>품의번호</th><th>기안일</th><th>기안부서</th><th>업체명</th><th>KRW 환산</th><th>항목</th></tr></thead><tbody id="tu"></tbody></table></div></div>
+
+<div class="cards">
+<div class="cd b"><div class="lb">총 품의건수</div><div class="vl">334건</div></div>
+<div class="cd g"><div class="lb">결제완료</div><div class="vl">202건</div></div>
+<div class="cd r"><div class="lb">미결제</div><div class="vl">132건</div></div>
+<div class="cd p"><div class="lb">총 집행금액</div><div class="vl">₩5,373,732,987</div></div>
 </div>
 
-<script id="pms-data" type="application/json">{"updated": "2026-03-17 14:34", "year": 2026, "total": 334, "paid": 202, "unpaid": 132, "total_krw": 5373732987, "dom_cnt": 301, "dom_krw": 2692653289, "fgn_cnt": 33, "fgn_krw": 2681079698, "monthly": [{"m": "2026-01", "c": 203, "k": 2122303494}, {"m": "2026-02", "c": 131, "k": 3251429493}], "all_months": ["2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10", "2026-11", "2026-12"], "dept": [{"d": "솔루션사업부", "c": 66, "k": 4897443899}, {"d": "디지털제조사업부", "c": 134, "k": 340938676}, {"d": "AM시스템개발부", "c": 81, "k": 69179951}, {"d": "연구소", "c": 39, "k": 40884661}, {"d": "경영관리부", "c": 14, "k": 25285800}], "item": [{"i": "미분류", "c": 321, "k": 2774523127, "color": "#94A3B8"}, {"i": "모니터링", "c": 2, "k": 2591848000, "color": "#84CC16"}, {"i": "외주가공", "c": 3, "k": 3414000, "color": "#10B981"}, {"i": "자산", "c": 2, "k": 2470600, "color": "#8B5CF6"}, {"i": "부자재", "c": 3, "k": 1247200, "color": "#F59E0B"}, {"i": "원자재", "c": 1, "k": 121400, "color": "#EF4444"}, {"i": "비품", "c": 1, "k": 108660, "color": "#EC4899"}, {"i": "소모품", "c": 1, "k": 0, "color": "#1B6FD8"}], "unpaid_list": [{"no": "260227-0084", "dt": "2026-02-27 17:00", "dep": "메타데이터베이스 TF", "vnd": "나비엠알오", "k": 108660, "itm": "비품"}, {"no": "260227-0068", "dt": "2026-02-27 14:57", "dep": "AI 연구팀", "vnd": "컴퓨존", "k": 1520600, "itm": "자산"}, {"no": "260227-0065", "dt": "2026-02-27 14:28", "dep": "AM시스템 엔지니어링팀", "vnd": "", "k": 0, "itm": "소모품"}, {"no": "260227-0064", "dt": "2026-02-27 14:20", "dep": "솔루션영업2팀", "vnd": "퓨전테크놀로지", "k": 18700000, "itm": "모니터링"}, {"no": "260226-0050", "dt": "2026-02-26 17:00", "dep": "양산팀", "vnd": "새니피아/네이버", "k": 379200, "itm": "부자재"}, {"no": "260226-0047", "dt": "2026-02-26 16:35", "dep": "AM시스템 설계팀", "vnd": "우성정밀", "k": 264000, "itm": "외주가공"}, {"no": "260226-0046", "dt": "2026-02-26 16:28", "dep": "양산팀", "vnd": "충남H.F", "k": 2000000, "itm": "외주가공"}, {"no": "260226-0033", "dt": "2026-02-26 12:06", "dep": "FDM 연구팀", "vnd": "하이어클락", "k": 280000, "itm": "부자재"}, {"no": "260226-0030", "dt": "2026-02-26 11:53", "dep": "AM시스템 설계팀", "vnd": "다올정밀", "k": 1150000, "itm": "외주가공"}, {"no": "260226-0026", "dt": "2026-02-26 11:33", "dep": "솔루션사업부", "vnd": "COHERENT", "k": 2573148000, "itm": "모니터링"}, {"no": "260225-0064", "dt": "2026-02-25 17:24", "dep": "솔루션영업1팀", "vnd": "브룰레코리아", "k": 454750, "itm": "미분류"}, {"no": "260225-0054", "dt": "2026-02-25 16:21", "dep": "품질경영팀", "vnd": "Kiwa korea", "k": 770000, "itm": "미분류"}, {"no": "260225-0033", "dt": "2026-02-25 12:00", "dep": "솔루션영업1팀", "vnd": "동부중량", "k": 8800000, "itm": "미분류"}, {"no": "260225-0031", "dt": "2026-02-25 11:56", "dep": "솔루션영업1팀", "vnd": "씨플러스씨", "k": 10780000, "itm": "미분류"}, {"no": "260225-0029", "dt": "2026-02-25 11:52", "dep": "디지털제조사업부", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260225-0008", "dt": "2026-02-25 10:10", "dep": "기술혁신팀", "vnd": "프로젝트비", "k": 65400, "itm": "미분류"}, {"no": "260224-0050", "dt": "2026-02-24 19:00", "dep": "양산팀", "vnd": "Materialise", "k": 18993602, "itm": "미분류"}, {"no": "260224-0040", "dt": "2026-02-24 16:05", "dep": "디자인팀", "vnd": "3D 엔터", "k": 1375000, "itm": "미분류"}, {"no": "260224-0034", "dt": "2026-02-24 14:53", "dep": "글로벌 I 마케팅팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260224-0032", "dt": "2026-02-24 14:39", "dep": "글로벌 I 마케팅팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260220-0069", "dt": "2026-02-20 17:12", "dep": "AM시스템 엔지니어링팀", "vnd": "나비엠알오", "k": 16000, "itm": "미분류"}, {"no": "260220-0045", "dt": "2026-02-20 12:29", "dep": "인사총무팀", "vnd": "컴퓨존 외", "k": 1763000, "itm": "미분류"}, {"no": "260220-0031", "dt": "2026-02-20 11:42", "dep": "양산팀", "vnd": "나비엠알오", "k": 1169500, "itm": "미분류"}, {"no": "260219-0083", "dt": "2026-02-19 18:55", "dep": "양산팀", "vnd": "신우_CHEM", "k": 3740000, "itm": "미분류"}, {"no": "260219-0069", "dt": "2026-02-19 16:44", "dep": "솔루션영업2팀", "vnd": "에이엠플러스", "k": 1536958, "itm": "미분류"}, {"no": "260219-0059", "dt": "2026-02-19 15:02", "dep": "글로벌 I 마케팅팀", "vnd": "MailerLite", "k": 581256, "itm": "미분류"}, {"no": "260219-0050", "dt": "2026-02-19 12:27", "dep": "양산팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260219-0027", "dt": "2026-02-19 10:54", "dep": "메타데이터베이스 TF", "vnd": "보그자원", "k": 200000, "itm": "미분류"}, {"no": "260219-0010", "dt": "2026-02-19 09:36", "dep": "양산팀", "vnd": "나비엠알오", "k": 236740, "itm": "미분류"}, {"no": "260213-0029", "dt": "2026-02-13 12:55", "dep": "양산팀", "vnd": "나비엠알오", "k": 301910, "itm": "미분류"}, {"no": "260212-0041", "dt": "2026-02-12 15:29", "dep": "솔루션영업1팀", "vnd": "마인3디피", "k": 2240000, "itm": "미분류"}, {"no": "260211-0065", "dt": "2026-02-11 21:10", "dep": "AM시스템 PM팀", "vnd": "화인L&C", "k": 8140000, "itm": "미분류"}, {"no": "260211-0034", "dt": "2026-02-11 12:30", "dep": "기술혁신팀", "vnd": "네이버/성원애드피아/하나오피스", "k": 198669, "itm": "미분류"}, {"no": "260210-0004", "dt": "2026-02-10 10:26", "dep": "품질경영팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260209-0050", "dt": "2026-02-09 14:32", "dep": "AM시스템 설계팀", "vnd": "오엘테크", "k": 20000, "itm": "미분류"}, {"no": "260209-0049", "dt": "2026-02-09 14:20", "dep": "AM시스템 설계팀", "vnd": "오엘테크", "k": 440000, "itm": "미분류"}, {"no": "260209-0048", "dt": "2026-02-09 14:18", "dep": "AM시스템 설계팀", "vnd": "오엘테크", "k": 60000, "itm": "미분류"}, {"no": "260209-0047", "dt": "2026-02-09 14:17", "dep": "AM시스템 설계팀", "vnd": "오엘테크", "k": 85000, "itm": "미분류"}, {"no": "260209-0046", "dt": "2026-02-09 14:15", "dep": "AM시스템 설계팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260209-0045", "dt": "2026-02-09 14:15", "dep": "AM시스템 엔지니어링팀", "vnd": "피카소아트센터", "k": 1140000, "itm": "미분류"}, {"no": "260206-0021", "dt": "2026-02-06 11:30", "dep": "AM시스템 엔지니어링팀", "vnd": "한국미스미", "k": 47700, "itm": "미분류"}, {"no": "260205-0050", "dt": "2026-02-05 18:08", "dep": "메타데이터베이스 TF", "vnd": "나비엠알오", "k": 249980, "itm": "미분류"}, {"no": "260205-0048", "dt": "2026-02-05 17:54", "dep": "기술혁신팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260205-0028", "dt": "2026-02-05 14:03", "dep": "AM시스템 PM팀", "vnd": "나비엠알오", "k": 355900, "itm": "미분류"}, {"no": "260205-0012", "dt": "2026-02-05 10:26", "dep": "기술혁신팀", "vnd": "프리메디텍", "k": 3200000, "itm": "미분류"}, {"no": "260205-0008", "dt": "2026-02-05 09:13", "dep": "기술혁신팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260204-0048", "dt": "2026-02-04 16:35", "dep": "AM시스템 설계팀", "vnd": "한국미스미", "k": 22800, "itm": "미분류"}, {"no": "260203-0079", "dt": "2026-02-03 18:48", "dep": "디자인팀", "vnd": "한국미스미", "k": 30100, "itm": "미분류"}, {"no": "260203-0073", "dt": "2026-02-03 17:51", "dep": "디자인팀", "vnd": "나비엠알오", "k": 1709790, "itm": "미분류"}, {"no": "260203-0070", "dt": "2026-02-03 17:23", "dep": "메타데이터베이스 TF", "vnd": "한국미스미", "k": 1174200, "itm": "미분류"}, {"no": "260203-0027", "dt": "2026-02-03 12:04", "dep": "글로벌 I 마케팅팀", "vnd": "구글코리아 유한회사", "k": 2800000, "itm": "미분류"}, {"no": "260203-0017", "dt": "2026-02-03 10:56", "dep": "양산팀", "vnd": "나비엠알오", "k": 144276, "itm": "미분류"}, {"no": "260202-0084", "dt": "2026-02-02 18:49", "dep": "솔루션영업1팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260202-0079", "dt": "2026-02-02 18:08", "dep": "솔루션영업2팀", "vnd": "파이프 드라이브 해시스냅", "k": 15474109, "itm": "미분류"}, {"no": "260202-0063", "dt": "2026-02-02 15:01", "dep": "AM시스템 설계팀", "vnd": "다원메카트로닉스", "k": 2659800, "itm": "미분류"}, {"no": "260202-0038", "dt": "2026-02-02 12:30", "dep": "메타데이터베이스 TF", "vnd": "나비엠알오", "k": 543741, "itm": "미분류"}, {"no": "260202-0029", "dt": "2026-02-02 11:39", "dep": "AM시스템 설계팀", "vnd": "다원메카트로닉스", "k": 1633500, "itm": "미분류"}, {"no": "260130-0068", "dt": "2026-01-30 20:37", "dep": "AM시스템 엔지니어링팀", "vnd": "우루", "k": 232000, "itm": "미분류"}, {"no": "260130-0057", "dt": "2026-01-30 16:29", "dep": "솔루션영업1팀", "vnd": "브룰레코리아", "k": 928200, "itm": "미분류"}, {"no": "260130-0048", "dt": "2026-01-30 14:47", "dep": "AM시스템 설계팀", "vnd": "다원메카트로닉스", "k": 49720, "itm": "미분류"}, {"no": "260129-0045", "dt": "2026-01-29 16:37", "dep": "AM시스템 설계팀", "vnd": "다원메카트로닉스", "k": 998800, "itm": "미분류"}, {"no": "260129-0044", "dt": "2026-01-29 16:21", "dep": "AM시스템 설계팀", "vnd": "우성정밀", "k": 618200, "itm": "미분류"}, {"no": "260129-0035", "dt": "2026-01-29 15:03", "dep": "AM시스템 설계팀", "vnd": "한국미스미", "k": 24200, "itm": "미분류"}, {"no": "260129-0030", "dt": "2026-01-29 14:27", "dep": "글로벌 I 마케팅팀", "vnd": "네이버 주식회사", "k": 1000000, "itm": "미분류"}, {"no": "260129-0029", "dt": "2026-01-29 14:19", "dep": "AM시스템 설계팀", "vnd": "우성정밀", "k": 647900, "itm": "미분류"}, {"no": "260129-0012", "dt": "2026-01-29 10:17", "dep": "디지털제조사업부", "vnd": "루시드네트웍스", "k": 22279400, "itm": "미분류"}, {"no": "260128-0021", "dt": "2026-01-28 16:18", "dep": "솔루션영업2팀", "vnd": "로지컬디자인", "k": 451000, "itm": "미분류"}, {"no": "260128-0009", "dt": "2026-01-28 10:50", "dep": "바인더젯 연구팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260127-0059", "dt": "2026-01-27 18:51", "dep": "SLA 연구팀", "vnd": "듀라소닉", "k": 176000, "itm": "미분류"}, {"no": "260127-0039", "dt": "2026-01-27 16:35", "dep": "메타데이터베이스 TF", "vnd": "티오피 환경", "k": 950000, "itm": "미분류"}, {"no": "260127-0031", "dt": "2026-01-27 15:20", "dep": "디자인팀", "vnd": "나비엠알오", "k": 486761, "itm": "미분류"}, {"no": "260127-0006", "dt": "2026-01-27 09:43", "dep": "양산팀", "vnd": "착한팜", "k": 105000, "itm": "미분류"}, {"no": "260127-0004", "dt": "2026-01-27 09:39", "dep": "기술혁신팀", "vnd": "쿠팡", "k": 250910, "itm": "미분류"}, {"no": "260126-0040", "dt": "2026-01-26 16:38", "dep": "AI 연구팀", "vnd": "어드밴텍", "k": 2363900, "itm": "미분류"}, {"no": "260126-0033", "dt": "2026-01-26 14:24", "dep": "솔루션영업1팀", "vnd": "쿠팡", "k": 4781020, "itm": "미분류"}, {"no": "260126-0009", "dt": "2026-01-26 11:14", "dep": "SLA 연구팀", "vnd": "태화이화학", "k": 875050, "itm": "미분류"}, {"no": "260126-0008", "dt": "2026-01-26 10:52", "dep": "AI 연구팀", "vnd": "아이티에스㈜", "k": 2212100, "itm": "미분류"}, {"no": "260123-0051", "dt": "2026-01-23 18:27", "dep": "AM시스템 엔지니어링팀", "vnd": "화물나르미", "k": 60500, "itm": "미분류"}, {"no": "260123-0048", "dt": "2026-01-23 17:51", "dep": "AM시스템 엔지니어링팀", "vnd": "포진 지게차", "k": 66000, "itm": "미분류"}, {"no": "260123-0047", "dt": "2026-01-23 17:44", "dep": "AM시스템 엔지니어링팀", "vnd": "평촌 지게차", "k": 77000, "itm": "미분류"}, {"no": "260123-0012", "dt": "2026-01-23 10:51", "dep": "AM시스템 설계팀", "vnd": "한국미스미", "k": 5610, "itm": "미분류"}, {"no": "260122-0070", "dt": "2026-01-22 18:25", "dep": "양산팀", "vnd": "㈜)비젼테크", "k": 2514600, "itm": "미분류"}, {"no": "260122-0067", "dt": "2026-01-22 17:04", "dep": "기술혁신팀", "vnd": "3D그루", "k": 1781000, "itm": "미분류"}, {"no": "260122-0025", "dt": "2026-01-22 11:29", "dep": "AM시스템 PM팀", "vnd": "준성테크", "k": 440000, "itm": "미분류"}, {"no": "260122-0019", "dt": "2026-01-22 11:05", "dep": "기술혁신팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260121-0015", "dt": "2026-01-21 12:15", "dep": "기술혁신팀", "vnd": "아주대학교 공동기기센터", "k": 1056000, "itm": "미분류"}, {"no": "260120-0009", "dt": "2026-01-20 10:34", "dep": "구매팀", "vnd": "다우데이타", "k": 16500000, "itm": "미분류"}, {"no": "260119-0056", "dt": "2026-01-19 18:23", "dep": "SLA 연구팀", "vnd": "한국고분자시험연구소", "k": 792000, "itm": "미분류"}, {"no": "260119-0019", "dt": "2026-01-19 12:23", "dep": "기술혁신팀", "vnd": "테크밸리", "k": 2376000, "itm": "미분류"}, {"no": "260119-0008", "dt": "2026-01-19 10:51", "dep": "AM시스템 설계팀", "vnd": "한국미스미", "k": 23672, "itm": "미분류"}, {"no": "260119-0005", "dt": "2026-01-19 09:20", "dep": "기술혁신팀", "vnd": "쿠팡", "k": 154400, "itm": "미분류"}, {"no": "260116-0029", "dt": "2026-01-16 15:50", "dep": "양산팀", "vnd": "나비엠알오", "k": 96756, "itm": "미분류"}, {"no": "260116-0027", "dt": "2026-01-16 15:12", "dep": "SLA 연구팀", "vnd": "성균관대 공동기기원", "k": 99000, "itm": "미분류"}, {"no": "260116-0025", "dt": "2026-01-16 15:00", "dep": "AM시스템 설계팀", "vnd": "우성정밀", "k": 726000, "itm": "미분류"}, {"no": "260116-0024", "dt": "2026-01-16 14:59", "dep": "AM시스템 설계팀", "vnd": "우성정밀", "k": 2970000, "itm": "미분류"}, {"no": "260114-0078", "dt": "2026-01-14 18:31", "dep": "AM시스템 엔지니어링팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260114-0052", "dt": "2026-01-14 14:49", "dep": "인사총무팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260114-0048", "dt": "2026-01-14 13:49", "dep": "양산팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260114-0038", "dt": "2026-01-14 12:01", "dep": "전략팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260114-0017", "dt": "2026-01-14 10:51", "dep": "양산팀", "vnd": "나비엠알오", "k": 181445, "itm": "미분류"}, {"no": "260114-0016", "dt": "2026-01-14 10:46", "dep": "AM시스템 설계팀", "vnd": "한국미스미", "k": 24200, "itm": "미분류"}, {"no": "260113-0084", "dt": "2026-01-13 18:48", "dep": "디지털제조사업부", "vnd": "아이원컴퍼니", "k": 8569000, "itm": "미분류"}, {"no": "260113-0055", "dt": "2026-01-13 14:08", "dep": "기술혁신팀", "vnd": "㈜에스엠산업가스", "k": 2371600, "itm": "미분류"}, {"no": "260113-0051", "dt": "2026-01-13 13:55", "dep": "기술혁신팀", "vnd": "국립한국교통대학교 산학협력단", "k": 55341000, "itm": "미분류"}, {"no": "260112-0037", "dt": "2026-01-12 15:21", "dep": "양산팀", "vnd": "나비엠알오", "k": 923912, "itm": "미분류"}, {"no": "260112-0031", "dt": "2026-01-12 14:28", "dep": "양산팀", "vnd": "월드정보6/네이버", "k": 1500000, "itm": "미분류"}, {"no": "260111-0001", "dt": "2026-01-11 03:10", "dep": "디지털제조사업부", "vnd": "아이원컴퍼니", "k": 622600, "itm": "미분류"}, {"no": "260109-0049", "dt": "2026-01-09 18:25", "dep": "AM시스템 설계팀", "vnd": "㈜위버맨시", "k": 6270000, "itm": "미분류"}, {"no": "260109-0046", "dt": "2026-01-09 18:11", "dep": "SLA 연구팀", "vnd": "태화이화학", "k": 569580, "itm": "미분류"}, {"no": "260109-0040", "dt": "2026-01-09 15:56", "dep": "AM시스템 엔지니어링팀", "vnd": "이플랜 유한회사", "k": 8221400, "itm": "미분류"}, {"no": "260109-0038", "dt": "2026-01-09 15:39", "dep": "솔루션영업2팀", "vnd": "Defense Global Kazakhstan LLP", "k": 4485000, "itm": "미분류"}, {"no": "260109-0026", "dt": "2026-01-09 13:02", "dep": "기술혁신팀", "vnd": "유진메트롤로지", "k": 440000, "itm": "미분류"}, {"no": "260109-0014", "dt": "2026-01-09 11:00", "dep": "기술혁신팀", "vnd": "쿠팡", "k": 1841220, "itm": "미분류"}, {"no": "260108-0074", "dt": "2026-01-08 17:24", "dep": "인사총무팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260108-0047", "dt": "2026-01-08 13:59", "dep": "선행개발팀", "vnd": "제일에프에이", "k": 467500, "itm": "미분류"}, {"no": "260108-0037", "dt": "2026-01-08 12:19", "dep": "디지털제조사업부", "vnd": "컴퓨존", "k": 317700, "itm": "미분류"}, {"no": "260108-0026", "dt": "2026-01-08 11:14", "dep": "기술혁신팀", "vnd": "쿠팡", "k": 184943, "itm": "미분류"}, {"no": "260108-0024", "dt": "2026-01-08 11:09", "dep": "선행개발팀", "vnd": "한국미스미", "k": 533478, "itm": "미분류"}, {"no": "260108-0018", "dt": "2026-01-08 10:42", "dep": "인사총무팀", "vnd": "G마켓 외", "k": 2750000, "itm": "미분류"}, {"no": "260108-0007", "dt": "2026-01-08 09:16", "dep": "기술혁신팀", "vnd": "가구 로하스", "k": 6248000, "itm": "미분류"}, {"no": "260108-0005", "dt": "2026-01-08 08:43", "dep": "기술혁신팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260108-0004", "dt": "2026-01-08 08:26", "dep": "기술혁신팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260107-0083", "dt": "2026-01-07 18:31", "dep": "디자인팀", "vnd": "나비엠알오", "k": 872245, "itm": "미분류"}, {"no": "260107-0053", "dt": "2026-01-07 16:21", "dep": "공정기획팀", "vnd": "나비엠알오", "k": 40689, "itm": "미분류"}, {"no": "260107-0045", "dt": "2026-01-07 15:45", "dep": "선행개발팀", "vnd": "㈜준성테크", "k": 1493800, "itm": "미분류"}, {"no": "260107-0041", "dt": "2026-01-07 15:02", "dep": "공정기획팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260106-0068", "dt": "2026-01-06 18:00", "dep": "솔루션영업2팀", "vnd": "쇼카고로지스틱스", "k": 14064610, "itm": "미분류"}, {"no": "260106-0018", "dt": "2026-01-06 11:51", "dep": "공정기획팀", "vnd": "나비엠알오", "k": 521334, "itm": "미분류"}, {"no": "260105-0065", "dt": "2026-01-05 16:03", "dep": "디자인팀", "vnd": "나비엠알오", "k": 750079, "itm": "미분류"}, {"no": "260105-0042", "dt": "2026-01-05 14:15", "dep": "인사총무팀", "vnd": "", "k": 0, "itm": "미분류"}, {"no": "260105-0012", "dt": "2026-01-05 10:29", "dep": "공정기획팀", "vnd": "나비엠알오", "k": 508134, "itm": "미분류"}, {"no": "260105-0005", "dt": "2026-01-05 09:12", "dep": "양산팀", "vnd": "", "k": 0, "itm": "미분류"}]}</script>
+<div class="sp">
+<div class="sc dom"><h3>국내 구매</h3><div class="n">301건</div><div class="k">₩2,692,653,289</div></div>
+<div class="sc fgn"><h3>해외 구매</h3><div class="n">33건</div><div class="k">₩2,681,079,698</div></div>
+</div>
+
+<div class="sec"><div class="st">월별 구매현황 (KRW)</div>
+<div class="cr"><div><table><thead><tr><th>월</th><th>건수</th><th>KRW 합계</th></tr></thead><tbody><tr><td>1월</td><td>203</td><td class="mn">₩2,122,303,494</td></tr>
+<tr><td>2월</td><td>131</td><td class="mn">₩3,251,429,493</td></tr>
+<tr><td>3월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>4월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>5월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>6월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>7월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>8월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>9월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>10월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>11월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr><td>12월</td><td>0</td><td class="mn">₩0</td></tr>
+<tr class="tot"><td>합계</td><td>334</td><td class="mn">₩5,373,732,987</td></tr></tbody></table></div>
+<div><canvas id="cm"></canvas></div></div></div>
+
+<div class="sec"><div class="st">부서별 구매현황 (KRW)</div>
+<div class="cr"><div><table><thead><tr><th>부서</th><th>건수</th><th>KRW 합계</th></tr></thead><tbody><tr><td>솔루션사업부</td><td>66</td><td class="mn">₩4,897,443,899</td></tr>
+<tr><td>디지털제조사업부</td><td>134</td><td class="mn">₩340,938,676</td></tr>
+<tr><td>AM시스템개발부</td><td>81</td><td class="mn">₩69,179,951</td></tr>
+<tr><td>연구소</td><td>39</td><td class="mn">₩40,884,661</td></tr>
+<tr><td>경영관리부</td><td>14</td><td class="mn">₩25,285,800</td></tr>
+<tr class="tot"><td>합계</td><td>334</td><td class="mn">₩5,373,732,987</td></tr></tbody></table></div>
+<div><canvas id="cd2"></canvas></div></div></div>
+
+<div class="sec"><div class="st">부서별 × 월별 구매현황 (KRW)</div>
+<div class="dm-wrap"><table><thead><tr><th>부서</th><th>1월</th><th>2월</th><th>3월</th><th>4월</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th><th>12월</th><th>합계</th></tr></thead><tbody><tr><td>솔루션사업부</td><td class="mn">17.6억</td><td class="mn">31.4억</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">49.0억</td></tr>
+<tr><td>디지털제조사업부</td><td class="mn">2.6억</td><td class="mn">76M</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">3.4억</td></tr>
+<tr><td>AM시스템개발부</td><td class="mn">44M</td><td class="mn">25M</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">69M</td></tr>
+<tr><td>연구소</td><td class="mn">32M</td><td class="mn">9M</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">41M</td></tr>
+<tr><td>경영관리부</td><td class="mn">22M</td><td class="mn">3M</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">25M</td></tr>
+<tr class="tot"><td>합계</td><td class="mn">21.2억</td><td class="mn">32.5억</td><td class="mn">0</td><td class="mn">0</td><td class="mn">0</td><td class="mn">0</td><td class="mn">0</td><td class="mn">0</td><td class="mn">0</td><td class="mn">0</td><td class="mn">0</td><td class="mn">0</td><td class="mn">53.7억</td></tr></tbody></table></div></div>
+
+<div class="sec"><div class="st">항목분류별 구매현황</div>
+<div class="cr"><div><table><thead><tr><th>항목</th><th>건수</th><th>KRW 합계</th><th>비율</th></tr></thead><tbody><tr><td>미분류</td><td>321</td><td class="mn">₩2,774,523,127</td><td>51.6%</td></tr>
+<tr><td>모니터링</td><td>2</td><td class="mn">₩2,591,848,000</td><td>48.2%</td></tr>
+<tr><td>외주가공</td><td>3</td><td class="mn">₩3,414,000</td><td>0.1%</td></tr>
+<tr><td>자산</td><td>2</td><td class="mn">₩2,470,600</td><td>0.0%</td></tr>
+<tr><td>부자재</td><td>3</td><td class="mn">₩1,247,200</td><td>0.0%</td></tr>
+<tr><td>원자재</td><td>1</td><td class="mn">₩121,400</td><td>0.0%</td></tr>
+<tr><td>비품</td><td>1</td><td class="mn">₩108,660</td><td>0.0%</td></tr>
+<tr><td>소모품</td><td>1</td><td class="mn">₩0</td><td>0.0%</td></tr>
+<tr class="tot"><td>합계</td><td>334</td><td class="mn">₩5,373,732,987</td><td>100%</td></tr></tbody></table></div>
+<div><canvas id="ci"></canvas></div></div></div>
+
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
-window.onload = function(){
-var D = JSON.parse(document.getElementById('pms-data').textContent);
-var fK = function(v){ return '₩' + (v||0).toLocaleString('ko-KR'); };
-var fM = function(v){ return v >= 1e8 ? (v/1e8).toFixed(1)+'억' : v >= 1e6 ? Math.round(v/1e6)+'M' : v.toLocaleString(); };
-
-// 월별
 (function(){
-  var t = document.getElementById('tm'), mm = {};
-  D.monthly.forEach(function(r){ mm[r.m] = r; });
-  var tC=0, tK=0;
-  D.all_months.forEach(function(m){
-    var r = mm[m] || {c:0, k:0};
-    tC += r.c; tK += r.k;
-    var ml = m.split('-')[1].replace(/^0/,'') + '월';
-    t.innerHTML += '<tr><td>'+ml+'</td><td>'+r.c+'</td><td class="mn">'+fK(r.k)+'</td></tr>';
-  });
-  document.getElementById('tmf').innerHTML = '<tr class="tot"><td>합계</td><td>'+tC+'</td><td class="mn">'+fK(tK)+'</td></tr>';
-  var labels = D.all_months.map(function(m){ return m.split('-')[1].replace(/^0/,'')+'월'; });
-  var values = D.all_months.map(function(m){ return (mm[m]||{k:0}).k; });
-  var colors = D.all_months.map(function(m){ return mm[m] ? '#1B6FD8' : '#E2E8F0'; });
-  new Chart(document.getElementById('cm'), {
-    type: 'bar',
-    data: { labels: labels, datasets: [{ data: values, backgroundColor: colors, borderRadius: 4 }] },
-    options: { responsive:true, plugins:{ legend:{display:false}, tooltip:{callbacks:{label:function(c){return fK(c.raw)}}} }, scales:{ y:{ticks:{callback:function(v){return fM(v)}}} } }
-  });
+  var C = {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2122303494, 3251429493, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "연구소", "경영관리부"], "dv": [4897443899, 340938676, 69179951, 40884661, 25285800], "il": ["모니터링", "외주가공", "자산", "부자재", "원자재", "비품", "소모품"], "iv": [2591848000, 3414000, 2470600, 1247200, 121400, 108660, 0], "ic": ["#84CC16", "#10B981", "#8B5CF6", "#F59E0B", "#EF4444", "#EC4899", "#1B6FD8"]};
+  var fM=function(v){return v>=1e8?(v/1e8).toFixed(1)+'억':v>=1e6?Math.round(v/1e6)+'M':v.toLocaleString();};
+  var fK=function(v){return '₩'+(v||0).toLocaleString('ko-KR');};
+  try{ new Chart(document.getElementById('cm'),{type:'bar',data:{labels:C.ml,datasets:[{data:C.mv,backgroundColor:C.mc,borderRadius:4}]},options:{responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fK(c.raw)}}}},scales:{y:{ticks:{callback:function(v){return fM(v)}}}}}}); }catch(e){console.error(e);}
+  try{ new Chart(document.getElementById('cd2'),{type:'bar',data:{labels:C.dl,datasets:[{data:C.dv,backgroundColor:'#10B981',borderRadius:4}]},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fK(c.raw)}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}}); }catch(e){console.error(e);}
+  try{ new Chart(document.getElementById('ci'),{type:'doughnut',data:{labels:C.il,datasets:[{data:C.iv,backgroundColor:C.ic,borderWidth:1}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}},tooltip:{callbacks:{label:function(c){return c.label+': '+fK(c.raw)}}}}}}); }catch(e){console.error(e);}
 })();
-
-// 부서별
-(function(){
-  var t = document.getElementById('td'), tC=0, tK=0;
-  D.dept.forEach(function(r){
-    tC += r.c; tK += r.k;
-    t.innerHTML += '<tr><td>'+r.d+'</td><td>'+r.c+'</td><td class="mn">'+fK(r.k)+'</td></tr>';
-  });
-  document.getElementById('tdf').innerHTML = '<tr class="tot"><td>합계</td><td>'+tC+'</td><td class="mn">'+fK(tK)+'</td></tr>';
-  var top = D.dept.slice(0,10);
-  new Chart(document.getElementById('cd2'), {
-    type: 'bar',
-    data: { labels: top.map(function(r){return r.d}), datasets: [{ data: top.map(function(r){return r.k}), backgroundColor: '#10B981', borderRadius: 4 }] },
-    options: { indexAxis:'y', responsive:true, plugins:{ legend:{display:false}, tooltip:{callbacks:{label:function(c){return fK(c.raw)}}} }, scales:{ x:{ticks:{callback:function(v){return fM(v)}}} } }
-  });
-})();
-
-// 항목분류별
-(function(){
-  var t = document.getElementById('ti'), tC=0, tK=0;
-  D.item.forEach(function(r){
-    tC += r.c; tK += r.k;
-    var pct = D.total_krw > 0 ? (r.k/D.total_krw*100).toFixed(1)+'%' : '0%';
-    t.innerHTML += '<tr><td>'+r.i+'</td><td>'+r.c+'</td><td class="mn">'+fK(r.k)+'</td><td>'+pct+'</td></tr>';
-  });
-  document.getElementById('tif').innerHTML = '<tr class="tot"><td>합계</td><td>'+tC+'</td><td class="mn">'+fK(tK)+'</td><td>100%</td></tr>';
-  var cl = D.item.filter(function(r){ return r.i !== '미분류'; });
-  new Chart(document.getElementById('ci'), {
-    type: 'doughnut',
-    data: { labels: cl.map(function(r){return r.i}), datasets: [{ data: cl.map(function(r){return r.k}), backgroundColor: cl.map(function(r){return r.color}), borderWidth: 1 }] },
-    options: { responsive:true, plugins:{ legend:{position:'bottom', labels:{font:{size:11}}}, tooltip:{callbacks:{label:function(c){return c.label+': '+fK(c.raw)}}} } }
-  });
-})();
-
-// 미결제 목록
-(function(){
-  var t = document.getElementById('tu');
-  D.unpaid_list.forEach(function(r){
-    t.innerHTML += '<tr><td>'+r.no+'</td><td>'+r.dt+'</td><td>'+r.dep+'</td><td>'+(r.vnd||'-')+'</td><td class="mn">'+fK(r.k)+'</td><td>'+r.itm+'</td></tr>';
-  });
-})();
-
-};
 </script>
-
-</body></html>
+</body>
+</html>
