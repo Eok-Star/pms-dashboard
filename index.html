@@ -34,7 +34,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-19 15:07  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-19 15:10  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
 <div class="wrap">
 
 <div class="cards">
@@ -146,6 +146,33 @@ window.addEventListener('load',function(){
     _mkChart('ci',{type:'doughnut',data:{labels:C.il,datasets:[{data:C.iv,backgroundColor:C.ic,borderWidth:1}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}},tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b},0);var p=(c.raw/t*100).toFixed(1);return c.label+': '+fM(c.raw)+' ('+p+'%)';}}}}}}});
   });
 });
+</script>
+<div id="_pw_wall" style="position:fixed;inset:0;z-index:9999;background:rgba(15,32,68,.97);display:flex;align-items:center;justify-content:center">
+<div style="background:#1A2E55;border-radius:14px;padding:40px 36px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.6);min-width:320px">
+<div style="font-size:26px;font-weight:800;color:#fff;margin-bottom:6px">PMS 대시보드</div>
+<div style="color:#94A3B8;font-size:13px;margin-bottom:24px">접근하려면 비밀번호를 입력하세요</div>
+<input id="_pw_in" type="password" placeholder="비밀번호" autocomplete="current-password"
+  style="width:100%;box-sizing:border-box;padding:11px 14px;border-radius:8px;border:1.5px solid #334155;background:#0F2044;color:#fff;font-size:15px;outline:none;margin-bottom:14px">
+<button id="_pw_btn" style="width:100%;padding:11px;border-radius:8px;border:none;background:#2563EB;color:#fff;font-size:15px;font-weight:700;cursor:pointer">확인</button>
+<div id="_pw_err" style="color:#EF4444;font-size:12px;margin-top:10px;display:none">비밀번호가 올바르지 않습니다.</div>
+</div>
+</div>
+<script>
+(function(){
+  var H='32b98fce41449aec2e28deb0ad553fa51f65c184adb3e321dcb468211ad971c6';
+  function unlock(){document.getElementById('_pw_wall').remove();sessionStorage.setItem('_pms_auth',H);}
+  if(sessionStorage.getItem('_pms_auth')===H){unlock();return;}
+  function check(){
+    var v=document.getElementById('_pw_in').value;
+    if(!v)return;
+    crypto.subtle.digest('SHA-256',new TextEncoder().encode(v)).then(function(b){
+      var h=Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('');
+      if(h===H){unlock();}else{var e=document.getElementById('_pw_err');e.style.display='block';document.getElementById('_pw_in').value='';}
+    });
+  }
+  document.getElementById('_pw_btn').addEventListener('click',check);
+  document.getElementById('_pw_in').addEventListener('keydown',function(e){if(e.key==='Enter')check();});
+})();
 </script>
 </body>
 </html>
