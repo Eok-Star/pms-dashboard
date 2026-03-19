@@ -30,11 +30,11 @@ tr:nth-child(even){background:#F8FAFC}
 .tot{background:#1A2E55!important;color:#fff!important;font-weight:700}
 .tot td{color:#fff!important;border:none}
 .dm-wrap{overflow-x:auto;border-radius:8px}
-.chart-box{position:relative;height:320px;min-height:320px;overflow:hidden}.chart-box-lg{position:relative;height:420px;min-height:420px;overflow:hidden}
+.chart-box{position:relative;height:320px;min-height:320px;contain:strict}.chart-box-lg{position:relative;height:420px;min-height:420px;contain:strict}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-19 15:10  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-19 15:15  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
 <div class="wrap">
 
 <div class="cards">
@@ -58,7 +58,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>11월</td><td>0</td><td class="mn">-</td></tr>
 <tr><td>12월</td><td>0</td><td class="mn">-</td></tr>
 <tr class="tot"><td>합계</td><td>334</td><td class="mn">5,493백만원</td></tr></tbody></table></div>
-<div class="chart-box"><canvas id="cm"></canvas></div></div></div>
+<div class="chart-box"><canvas id="cm" width="700" height="320" style="width:100%;height:320px"></canvas></div></div></div>
 
 <div class="sec"><div class="st">부서별 구매현황 (KRW)</div>
 <div class="cr"><div><table><thead><tr><th>부서</th><th>건수</th><th>KRW 합계</th></tr></thead><tbody><tr><td>솔루션사업부</td><td>66</td><td class="mn">4,983백만원</td></tr>
@@ -67,7 +67,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>연구소</td><td>39</td><td class="mn">42백만원</td></tr>
 <tr><td>경영관리부</td><td>14</td><td class="mn">33백만원</td></tr>
 <tr class="tot"><td>합계</td><td>334</td><td class="mn">5,493백만원</td></tr></tbody></table></div>
-<div class="chart-box"><canvas id="cd2"></canvas></div></div></div>
+<div class="chart-box"><canvas id="cd2" width="700" height="320" style="width:100%;height:320px"></canvas></div></div></div>
 
 <div class="sec"><div class="st">부서별 × 월별 구매현황 (KRW)</div>
 <div class="dm-wrap"><table><thead><tr><th>부서</th><th>1월</th><th>2월</th><th>3월</th><th>4월</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th><th>12월</th><th>합계</th></tr></thead><tbody><tr><td>솔루션사업부</td><td class="mn">1,760백만원</td><td class="mn">3,223백만원</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">4,983백만원</td></tr>
@@ -92,7 +92,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>공사</td><td>2</td><td class="mn">12백만원</td><td>0.2%</td></tr>
 <tr><td>비품</td><td>19</td><td class="mn">11백만원</td><td>0.2%</td></tr>
 <tr class="tot"><td>합계</td><td>334</td><td class="mn">5,493백만원</td><td>100%</td></tr></tbody></table></div>
-<div class="chart-box-lg"><canvas id="ci"></canvas></div></div></div>
+<div class="chart-box-lg"><canvas id="ci" width="700" height="420" style="width:100%;height:420px"></canvas></div></div></div>
 
 <div class="sec"><div class="st">주요 구매업체 TOP 20 (월별 구매금액)</div>
 <div class="dm-wrap"><table><thead><tr><th>순위</th><th>업체명</th><th>건수</th><th>총금액</th><th>1월</th><th>2월</th><th>3월</th><th>4월</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th><th>12월</th></tr></thead><tbody><tr><td style="color:#1B6FD8;font-weight:700">1</td><td style="text-align:left;font-weight:600">COHERENT</td><td>1</td><td class="mn">2,658백만원</td><td style="color:#CBD5E1">-</td><td class="mn">2,658백만원</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
@@ -126,25 +126,16 @@ var fM=function(v){var m=Math.round(v/1e6);return m>0?m.toLocaleString()+'백만
 function _mkChart(id,cfg){
   var el=document.getElementById(id);
   if(!el)return;
-  var box=el.parentElement;
-  var w=box.clientWidth||700;
-  var h=box.clientHeight||320;
-  el.setAttribute('width',w);
-  el.setAttribute('height',h);
-  el.style.width=w+'px';
-  el.style.height=h+'px';
   cfg.options=cfg.options||{};
   cfg.options.animation=false;
-  cfg.options.responsive=false;
+  cfg.options.responsive=true;
   cfg.options.maintainAspectRatio=false;
-  try{new Chart(el,cfg);}catch(e){console.error(e);}
+  try{new Chart(el,cfg);}catch(e){console.error('Chart error',id,e);}
 }
-window.addEventListener('load',function(){
-  requestAnimationFrame(function(){
-    _mkChart('cm',{type:'bar',data:{labels:C.ml,datasets:[{data:C.mv,backgroundColor:C.mc,borderRadius:4}]},options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)}}}},scales:{y:{ticks:{callback:function(v){return fM(v)}}}}}});
-    _mkChart('cd2',{type:'bar',data:{labels:C.dl,datasets:[{data:C.dv,backgroundColor:'#10B981',borderRadius:4}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}});
-    _mkChart('ci',{type:'doughnut',data:{labels:C.il,datasets:[{data:C.iv,backgroundColor:C.ic,borderWidth:1}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}},tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b},0);var p=(c.raw/t*100).toFixed(1);return c.label+': '+fM(c.raw)+' ('+p+'%)';}}}}}}});
-  });
+document.addEventListener('DOMContentLoaded',function(){
+  _mkChart('cm',{type:'bar',data:{labels:C.ml,datasets:[{data:C.mv,backgroundColor:C.mc,borderRadius:4}]},options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)}}}},scales:{y:{ticks:{callback:function(v){return fM(v)}}}}}});
+  _mkChart('cd2',{type:'bar',data:{labels:C.dl,datasets:[{data:C.dv,backgroundColor:'#10B981',borderRadius:4}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}});
+  _mkChart('ci',{type:'doughnut',data:{labels:C.il,datasets:[{data:C.iv,backgroundColor:C.ic,borderWidth:1}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}},tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b},0);var p=(c.raw/t*100).toFixed(1);return c.label+': '+fM(c.raw)+' ('+p+'%)';}}}}}}});
 });
 </script>
 <div id="_pw_wall" style="position:fixed;inset:0;z-index:9999;background:rgba(15,32,68,.97);display:flex;align-items:center;justify-content:center">
