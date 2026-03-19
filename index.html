@@ -9,7 +9,11 @@ body{font-family:'Malgun Gothic','Segoe UI',sans-serif;background:#F1F5F9;color:
 .hdr{background:linear-gradient(135deg,#0F2044,#1B6FD8);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
 .hdr h1{font-size:20px;letter-spacing:1px}.hdr .sub{font-size:12px;color:#94A3C8;margin-top:2px}
 .hdr .note{font-size:11px;color:#94A3C8;margin-top:1px}
-.wrap{max-width:1600px;margin:0 auto;padding:18px 22px}
+.yr-bar{display:flex;gap:8px;padding:14px 22px;max-width:1600px;margin:0 auto}
+.yr-btn{padding:8px 22px;border:2px solid #1B6FD8;border-radius:8px;background:#fff;color:#1B6FD8;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.yr-btn:hover{background:#DBEAFE}
+.yr-btn.active{background:#1B6FD8;color:#fff;box-shadow:0 2px 8px rgba(27,111,216,.3)}
+.wrap{max-width:1600px;margin:0 auto;padding:4px 22px 18px}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
 .cd{background:#fff;border-radius:10px;padding:14px 18px;box-shadow:0 1px 4px rgba(0,0,0,.05);display:flex;flex-direction:column;min-height:90px}
 .cd .lb{font-size:13px;color:#64748B;font-weight:600}
@@ -32,12 +36,13 @@ tr:nth-child(even){background:#F8FAFC}
 .dm-wrap{overflow-x:auto;border-radius:8px}
 .chart-box{position:relative;height:320px;min-height:320px;overflow:hidden}.chart-box canvas{display:block}
 .chart-box-lg{position:relative;height:420px;min-height:420px;overflow:hidden}.chart-box-lg canvas{display:block}
-@media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}}</style>
+@media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-19 18:23  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-19 18:59  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
-
+<div class="yr-sec" id="sec2026" style="display:block">
 <div class="cards">
 <div class="cd b"><div class="lb">총 품의건수</div><div class="vl">334 건</div></div>
 <div class="cd c1"><div class="lb">국내 구매</div><div class="sub-info">301 건</div><div class="vl">2,702</div></div>
@@ -45,7 +50,7 @@ tr:nth-child(even){background:#F8FAFC}
 <div class="cd p"><div class="lb">총 집행금액(KRW)</div><div class="vl">5,493</div></div>
 </div>
 
-<div class="sec"><div class="st">월별 구매현황 (KRW)</div>
+<div class="sec"><div class="st">2026년 월별 구매현황 (KRW)</div>
 <div class="cr"><div><table><thead><tr><th>월</th><th>건수</th><th>KRW 합계</th></tr></thead><tbody><tr><td>1월</td><td>203</td><td class="mn">2,128</td></tr>
 <tr><td>2월</td><td>131</td><td class="mn">3,365</td></tr>
 <tr><td>3월</td><td>0</td><td class="mn">-</td></tr>
@@ -59,18 +64,18 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>11월</td><td>0</td><td class="mn">-</td></tr>
 <tr><td>12월</td><td>0</td><td class="mn">-</td></tr>
 <tr class="tot"><td>합계</td><td>334</td><td class="mn">5,493</td></tr></tbody></table></div>
-<div class="chart-box"><canvas id="cm" width="800" height="300"></canvas></div></div></div>
+<div class="chart-box"><canvas id="cm2026"></canvas></div></div></div>
 
-<div class="sec"><div class="st">부서별 구매현황 (KRW)</div>
+<div class="sec"><div class="st">2026년 부서별 구매현황 (KRW)</div>
 <div class="cr"><div><table><thead><tr><th>부서</th><th>건수</th><th>KRW 합계</th></tr></thead><tbody><tr><td>솔루션사업부</td><td>66</td><td class="mn">4,983</td></tr>
 <tr><td>디지털제조사업부</td><td>134</td><td class="mn">366</td></tr>
 <tr><td>AM시스템개발부</td><td>81</td><td class="mn">70</td></tr>
 <tr><td>연구소</td><td>39</td><td class="mn">42</td></tr>
 <tr><td>경영관리부</td><td>14</td><td class="mn">33</td></tr>
 <tr class="tot"><td>합계</td><td>334</td><td class="mn">5,493</td></tr></tbody></table></div>
-<div class="chart-box"><canvas id="cd2" width="800" height="300"></canvas></div></div></div>
+<div class="chart-box"><canvas id="cd2026"></canvas></div></div></div>
 
-<div class="sec"><div class="st">부서별 × 월별 구매현황 (KRW)</div>
+<div class="sec"><div class="st">2026년 부서별 × 월별 구매현황 (KRW)</div>
 <div class="dm-wrap"><table><thead><tr><th>부서</th><th>1월</th><th>2월</th><th>3월</th><th>4월</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th><th>12월</th><th>합계</th></tr></thead><tbody><tr><td>솔루션사업부</td><td class="mn">1,760</td><td class="mn">3,223</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">4,983</td></tr>
 <tr><td>디지털제조사업부</td><td class="mn">269</td><td class="mn">97</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">366</td></tr>
 <tr><td>AM시스템개발부</td><td class="mn">44</td><td class="mn">25</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">70</td></tr>
@@ -78,7 +83,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>경영관리부</td><td class="mn">22</td><td class="mn">11</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">33</td></tr>
 <tr class="tot"><td>합계</td><td class="mn">2,128</td><td class="mn">3,365</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">5,493</td></tr></tbody></table></div></div>
 
-<div class="sec"><div class="st">항목분류별 구매현황</div>
+<div class="sec"><div class="st">2026년 항목분류별 구매현황</div>
 <div class="cr"><div><table><thead><tr><th>항목</th><th>건수</th><th>KRW 합계</th><th>비율</th></tr></thead><tbody><tr><td>모니터링</td><td>57</td><td class="mn">4,942</td><td>90.0%</td></tr>
 <tr><td>원자재</td><td>15</td><td class="mn">120</td><td>2.2%</td></tr>
 <tr><td>기타</td><td>56</td><td class="mn">97</td><td>1.8%</td></tr>
@@ -93,9 +98,9 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>공사</td><td>2</td><td class="mn">12</td><td>0.2%</td></tr>
 <tr><td>비품</td><td>19</td><td class="mn">11</td><td>0.2%</td></tr>
 <tr class="tot"><td>합계</td><td>334</td><td class="mn">5,493</td><td>100%</td></tr></tbody></table></div>
-<div class="chart-box-lg"><canvas id="ci" width="600" height="400"></canvas></div></div></div>
+<div class="chart-box-lg"><canvas id="ci2026"></canvas></div></div></div>
 
-<div class="sec"><div class="st">주요 구매업체 TOP 20 (월별 구매금액)</div>
+<div class="sec"><div class="st">2026년 주요 구매업체 TOP 20 (월별 구매금액)</div>
 <div class="dm-wrap"><table><thead><tr><th>순위</th><th>업체명</th><th>건수</th><th>총금액</th><th>1월</th><th>2월</th><th>3월</th><th>4월</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th><th>12월</th></tr></thead><tbody><tr><td style="color:#1B6FD8;font-weight:700">1</td><td style="text-align:left;font-weight:600">COHERENT</td><td>1</td><td class="mn">2,658</td><td style="color:#CBD5E1">-</td><td class="mn">2,658</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr><td style="color:#1B6FD8;font-weight:700">2</td><td style="text-align:left;font-weight:600">메탈쓰리디</td><td>1</td><td class="mn">1,147</td><td class="mn">1,147</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr><td style="color:#1B6FD8;font-weight:700">3</td><td style="text-align:left;font-weight:600">코스모티어</td><td>1</td><td class="mn">227</td><td style="color:#CBD5E1">-</td><td class="mn">227</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
@@ -117,37 +122,47 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td style="color:#1B6FD8;font-weight:700">19</td><td style="text-align:left;font-weight:600">애드3D</td><td>1</td><td class="mn">16</td><td class="mn">16</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr><td style="color:#1B6FD8;font-weight:700">20</td><td style="text-align:left;font-weight:600">파이프 드라이브 해시스냅</td><td>1</td><td class="mn">15</td><td style="color:#CBD5E1">-</td><td class="mn">15</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr class="tot"><td></td><td>TOP 20 합계</td><td>37</td><td class="mn">5,080</td><td class="mn">1,892</td><td class="mn">3,188</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td></tr></tbody></table></div></div>
+</div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
-var C = {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2128313454, 3365110362, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "연구소", "경영관리부"], "dv": [4982833061, 365535375, 69878030, 42240810, 32936540], "il": ["모니터링", "원자재", "기타", "소프트웨어", "외주가공", "자산", "기계부품", "부자재", "소모품", "전시회", "고객대응", "공사", "비품"], "iv": [4941913456, 120220112, 96606417, 89721871, 63627719, 46174537, 29350997, 25864800, 21376124, 20823000, 14735258, 12408000, 10601525], "ic": ["#84CC16", "#EF4444", "#64748B", "#6366F1", "#10B981", "#8B5CF6", "#F97316", "#F59E0B", "#1B6FD8", "#FB923C", "#14B8A6", "#A855F7", "#EC4899"]};
+var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2128313454, 3365110362, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "연구소", "경영관리부"], "dv": [4982833061, 365535375, 69878030, 42240810, 32936540], "il": ["모니터링", "원자재", "기타", "소프트웨어", "외주가공", "자산", "기계부품", "부자재", "소모품", "전시회", "고객대응", "공사", "비품"], "iv": [4941913456, 120220112, 96606417, 89721871, 63627719, 46174537, 29350997, 25864800, 21376124, 20823000, 14735258, 12408000, 10601525], "ic": ["#84CC16", "#EF4444", "#64748B", "#6366F1", "#10B981", "#8B5CF6", "#F97316", "#F59E0B", "#1B6FD8", "#FB923C", "#14B8A6", "#A855F7", "#EC4899"]}};
+var _charts={};
 var fM=function(v){var m=Math.round(v/1e6);return m>0?m.toLocaleString():'-';};
 function _mkChart(id,cfg){
   var el=document.getElementById(id);
-  if(!el){console.error('Canvas not found:',id);return;}
-  if(typeof Chart==='undefined'){console.error('Chart.js not loaded');return;}
+  if(!el)return;if(typeof Chart==='undefined')return;
+  if(_charts[id]){_charts[id].destroy();}
   var box=el.parentElement;
   var w=box.clientWidth||box.offsetWidth||700;
   var h=box.clientHeight||box.offsetHeight||320;
-  el.width=w;el.height=h;
-  el.style.width=w+'px';el.style.height=h+'px';
-  cfg.options=cfg.options||{};
-  cfg.options.animation=false;
-  cfg.options.responsive=false;
-  cfg.options.maintainAspectRatio=false;
-  try{new Chart(el,cfg);}catch(e){console.error('Chart error:',id,e);}
+  el.width=w;el.height=h;el.style.width=w+'px';el.style.height=h+'px';
+  cfg.options=cfg.options||{};cfg.options.animation=false;cfg.options.responsive=false;cfg.options.maintainAspectRatio=false;
+  try{_charts[id]=new Chart(el,cfg);}catch(e){console.error('Chart error:',id,e);}
 }
-function _initCharts(){
-  _mkChart('cm',{type:'bar',data:{labels:C.ml,datasets:[{data:C.mv,backgroundColor:C.mc,borderRadius:4}]},options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{y:{ticks:{callback:function(v){return fM(v)}}}}}});
-  _mkChart('cd2',{type:'bar',data:{labels:C.dl,datasets:[{data:C.dv,backgroundColor:'#10B981',borderRadius:4}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}});
-  _mkChart('ci',{type:'doughnut',data:{labels:C.il,datasets:[{data:C.iv,backgroundColor:C.ic,borderWidth:1}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}},tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b},0);var p=(c.raw/t*100).toFixed(1);return c.label+': '+fM(c.raw)+' ('+p+'%)';}}}}}});
+function _drawYear(y){
+  var C=AD[y];if(!C)return;
+  _mkChart('cm'+y,{type:'bar',data:{labels:C.ml,datasets:[{data:C.mv,backgroundColor:C.mc,borderRadius:4}]},options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{y:{ticks:{callback:function(v){return fM(v)}}}}}});
+  _mkChart('cd'+y,{type:'bar',data:{labels:C.dl,datasets:[{data:C.dv,backgroundColor:'#10B981',borderRadius:4}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}});
+  _mkChart('ci'+y,{type:'doughnut',data:{labels:C.il,datasets:[{data:C.iv,backgroundColor:C.ic,borderWidth:1}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}},tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b},0);var p=(c.raw/t*100).toFixed(1);return c.label+': '+fM(c.raw)+' ('+p+'%)';}}}}}});
+}
+var _curYear=2026;
+function switchYear(y){
+  document.querySelectorAll('.yr-sec').forEach(function(el){el.style.display='none';});
+  document.querySelectorAll('.yr-btn').forEach(function(el){el.classList.remove('active');});
+  var sec=document.getElementById('sec'+y);
+  if(sec)sec.style.display='block';
+  var btn=document.getElementById('btn'+y);
+  if(btn)btn.classList.add('active');
+  _curYear=y;
+  setTimeout(function(){_drawYear(String(y));},50);
 }
 function _waitAndInit(){
-  if(typeof Chart!=='undefined'){setTimeout(_initCharts,50);return;}
+  if(typeof Chart!=='undefined'){setTimeout(function(){_drawYear(String(_curYear));},50);return;}
   var tries=0;
-  var iv=setInterval(function(){tries++;if(typeof Chart!=='undefined'||tries>50){clearInterval(iv);if(typeof Chart!=='undefined')_initCharts();}},100);
+  var iv=setInterval(function(){tries++;if(typeof Chart!=='undefined'||tries>50){clearInterval(iv);if(typeof Chart!=='undefined')_drawYear(String(_curYear));}},100);
 }
 if(document.readyState==='complete'||document.readyState==='interactive'){setTimeout(_waitAndInit,50);}
 else{document.addEventListener('DOMContentLoaded',function(){_waitAndInit();});}
