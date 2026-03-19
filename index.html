@@ -35,7 +35,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-19 18:12  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-19 18:21  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
 <div class="wrap">
 
 <div class="cards">
@@ -140,12 +140,17 @@ function _mkChart(id,cfg){
   try{new Chart(el,cfg);}catch(e){console.error('Chart error:',id,e);}
 }
 function _initCharts(){
-  _mkChart('cm',{type:'bar',data:{labels:C.ml,datasets:[{data:C.mv,backgroundColor:C.mc,borderRadius:4}]},options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)}}}},scales:{y:{ticks:{callback:function(v){return fM(v)}}}}}});
-  _mkChart('cd2',{type:'bar',data:{labels:C.dl,datasets:[{data:C.dv,backgroundColor:'#10B981',borderRadius:4}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}});
+  _mkChart('cm',{type:'bar',data:{labels:C.ml,datasets:[{data:C.mv,backgroundColor:C.mc,borderRadius:4}]},options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{y:{ticks:{callback:function(v){return fM(v)}}}}}});
+  _mkChart('cd2',{type:'bar',data:{labels:C.dl,datasets:[{data:C.dv,backgroundColor:'#10B981',borderRadius:4}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}});
   _mkChart('ci',{type:'doughnut',data:{labels:C.il,datasets:[{data:C.iv,backgroundColor:C.ic,borderWidth:1}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}},tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b},0);var p=(c.raw/t*100).toFixed(1);return c.label+': '+fM(c.raw)+' ('+p+'%)';}}}}}});
 }
-if(document.readyState==='complete'){setTimeout(_initCharts,100);}
-else{window.addEventListener('load',function(){setTimeout(_initCharts,100);});}
+function _waitAndInit(){
+  if(typeof Chart!=='undefined'){setTimeout(_initCharts,50);return;}
+  var tries=0;
+  var iv=setInterval(function(){tries++;if(typeof Chart!=='undefined'||tries>50){clearInterval(iv);if(typeof Chart!=='undefined')_initCharts();}},100);
+}
+if(document.readyState==='complete'||document.readyState==='interactive'){setTimeout(_waitAndInit,50);}
+else{document.addEventListener('DOMContentLoaded',function(){_waitAndInit();});}
 </script>
 <div id="_pw_wall" style="position:fixed;inset:0;z-index:9999;background:rgba(15,32,68,.97);display:flex;align-items:center;justify-content:center">
 <div style="background:#1A2E55;border-radius:14px;padding:40px 36px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.6);min-width:320px">
