@@ -40,7 +40,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-26 11:58  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-03-26 13:53  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -123,13 +123,27 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td style="color:#1B6FD8;font-weight:700">19</td><td style="text-align:left;font-weight:600">애드3D</td><td>1</td><td class="mn">16</td><td class="mn">16</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr><td style="color:#1B6FD8;font-weight:700">20</td><td style="text-align:left;font-weight:600">파이프 드라이브 해시스냅</td><td>1</td><td class="mn">15</td><td style="color:#CBD5E1">-</td><td class="mn">15</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr class="tot"><td></td><td>TOP 20 합계</td><td>37</td><td class="mn">5,080</td><td class="mn">1,892</td><td class="mn">3,188</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td></tr></tbody></table></div></div>
+
+<div class="sec"><div class="st">2026년 프로젝트별 구매금액 TOP 10<span class="unit">금액단위 : 백만원</span></div>
+<div class="cr"><div><table><thead><tr><th>프로젝트명</th><th>건수</th><th>합계</th></tr></thead><tbody><tr><td style="text-align:left">디에스세미콘 납품용 레이저 발진기 구매건</td><td>1</td><td class="mn">2,658</td></tr>
+<tr><td style="text-align:left">티모스 금속 3D프린터 구매건</td><td>1</td><td class="mn">1,147</td></tr>
+<tr><td style="text-align:left">모니터링 데이터 설비</td><td>1</td><td class="mn">227</td></tr>
+<tr><td style="text-align:left">SLA 소재 구매 건</td><td>1</td><td class="mn">220</td></tr>
+<tr><td style="text-align:left">모멘트 3D프린터 구매건</td><td>1</td><td class="mn">179</td></tr>
+<tr><td style="text-align:left">열교환기 구리 출력 및 테스트</td><td>1</td><td class="mn">176</td></tr>
+<tr><td style="text-align:left">서울시립대학교 3D프린터 구매건</td><td>2</td><td class="mn">89</td></tr>
+<tr><td style="text-align:left">IN718 프린팅 테스트</td><td>4</td><td class="mn">73</td></tr>
+<tr><td style="text-align:left">우나스텔라 연소기 제작을 위한 적층공정시험</td><td>2</td><td class="mn">58</td></tr>
+<tr><td style="text-align:left">3D프린터유해가스정화장치 1대 외 9종 구매건</td><td>2</td><td class="mn">40</td></tr>
+<tr class="tot"><td>TOP 10 합계</td><td>16</td><td class="mn">4,867</td></tr></tbody></table></div>
+<div class="chart-box-lg"><canvas id="cp2026"></canvas></div></div></div>
 </div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
-var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2128313454, 3365110362, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "연구소", "경영관리부"], "dv": [4982833061, 365535375, 69878030, 42240810, 32936540], "il": ["모니터링", "원자재", "기타", "소프트웨어", "외주가공", "자산", "기계부품", "부자재", "소모품", "전시회", "고객대응", "공사", "비품"], "iv": [4941913456, 120220112, 96606417, 89721871, 63627719, 46174537, 29350997, 25864800, 21376124, 20823000, 14735258, 12408000, 10601525], "ic": ["#84CC16", "#EF4444", "#64748B", "#6366F1", "#10B981", "#8B5CF6", "#F97316", "#F59E0B", "#1B6FD8", "#FB923C", "#14B8A6", "#A855F7", "#EC4899"]}};
+var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2128313454, 3365110362, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "연구소", "경영관리부"], "dv": [4982833061, 365535375, 69878030, 42240810, 32936540], "il": ["모니터링", "원자재", "기타", "소프트웨어", "외주가공", "자산", "기계부품", "부자재", "소모품", "전시회", "고객대응", "공사", "비품"], "iv": [4941913456, 120220112, 96606417, 89721871, 63627719, 46174537, 29350997, 25864800, 21376124, 20823000, 14735258, 12408000, 10601525], "ic": ["#84CC16", "#EF4444", "#64748B", "#6366F1", "#10B981", "#8B5CF6", "#F97316", "#F59E0B", "#1B6FD8", "#FB923C", "#14B8A6", "#A855F7", "#EC4899"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "티모스 금속 3D프린터 구매건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건", "열교환기 구리 출력 및 테스트", "서울시립대학교 3D프린터 구매건", "IN718 프린팅 테스트", "우나스텔라 연소기 제작을 위한 적층공정시험", "3D프린터유해가스정화장치 1대 외 9종 구매건"], "pv": [2658248344, 1147300000, 226600000, 220000000, 178750000, 176000000, 89265880, 72785024, 57712600, 39999998]}};
 var _charts={};
 var fM=function(v){var m=Math.round(v/1e6);return m>0?m.toLocaleString():'-';};
 function _mkChart(id,cfg){
@@ -148,6 +162,7 @@ function _drawYear(y){
   _mkChart('cm'+y,{type:'bar',data:{labels:C.ml,datasets:[{data:C.mv,backgroundColor:C.mc,borderRadius:4}]},options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{y:{ticks:{callback:function(v){return fM(v)}}}}}});
   _mkChart('cd'+y,{type:'bar',data:{labels:C.dl,datasets:[{data:C.dv,backgroundColor:'#10B981',borderRadius:4}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}});
   _mkChart('ci'+y,{type:'doughnut',data:{labels:C.il,datasets:[{data:C.iv,backgroundColor:C.ic,borderWidth:1}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}},tooltip:{callbacks:{label:function(c){var t=c.dataset.data.reduce(function(a,b){return a+b},0);var p=(c.raw/t*100).toFixed(1);return c.label+': '+fM(c.raw)+' ('+p+'%)';}}}}}});
+  if(C.pl&&C.pl.length>0){_mkChart('cp'+y,{type:'bar',data:{labels:C.pl,datasets:[{data:C.pv,backgroundColor:'#0891B2',borderRadius:4}]},options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return fM(c.raw)+'  '}}}},scales:{x:{ticks:{callback:function(v){return fM(v)}}}}}});}
 }
 var _curYear=2026;
 function switchYear(y){
