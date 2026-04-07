@@ -25,7 +25,7 @@ body{font-family:'Malgun Gothic','Segoe UI',sans-serif;background:#F1F5F9;color:
 .cd.p{border-left:5px solid #8B5CF6}.cd.p .vl{color:#8B5CF6}
 .sec{background:#fff;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
 .st{font-size:15px;font-weight:700;color:#0F2044;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between}
-.unit{font-size:12px;font-weight:700;color:#fff;margin-left:auto}
+.unit{font-size:12px;font-weight:400;color:#64748B;margin-left:8px}
 .cr{display:grid;grid-template-columns:1fr 1.8fr;gap:16px;align-items:start}
 table{width:100%;border-collapse:collapse;font-size:12px}
 th{background:#1A2E55;color:#fff;padding:7px 8px;font-weight:600;white-space:nowrap}
@@ -40,7 +40,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-04-07 18:27  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-04-07 18:33  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -51,7 +51,7 @@ tr:nth-child(even){background:#F8FAFC}
 <div class="cd p"><div class="lb">총 집행금액</div><div class="vl">6,187 백만원</div></div>
 </div>
 
-<div class="sec"><div class="st">2026년 월별 구매현황<span class="unit">금액단위 : 백만원</span></div>
+<div class="sec"><div class="st">2026년 월별 구매현황<span class="unit">(단위 : 백만원)</span></div>
 <div class="cr"><div><table><thead><tr><th>월</th><th>건수</th><th>합계</th></tr></thead><tbody><tr><td>1월</td><td>190</td><td class="mn">2,248</td></tr>
 <tr><td>2월</td><td>129</td><td class="mn">3,396</td></tr>
 <tr><td>3월</td><td>166</td><td class="mn">543</td></tr>
@@ -67,7 +67,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr class="tot"><td>합계</td><td>485</td><td class="mn">6,187</td></tr></tbody></table></div>
 <div class="chart-box"><canvas id="cm2026"></canvas></div></div></div>
 
-<div class="sec"><div class="st">2026년 부서별 구매현황<span class="unit">금액단위 : 백만원</span></div>
+<div class="sec"><div class="st">2026년 부서별 구매현황<span class="unit">(단위 : 백만원)</span></div>
 <div class="cr"><div><table><thead><tr><th>부서</th><th>건수</th><th>합계</th></tr></thead><tbody><tr><td>솔루션사업부</td><td>82</td><td class="mn">5,193</td></tr>
 <tr><td>디지털제조사업부</td><td>234</td><td class="mn">695</td></tr>
 <tr><td>AM시스템개발부</td><td>106</td><td class="mn">206</td></tr>
@@ -76,7 +76,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr class="tot"><td>합계</td><td>485</td><td class="mn">6,187</td></tr></tbody></table></div>
 <div class="chart-box"><canvas id="cd2026"></canvas></div></div></div>
 
-<div class="sec"><div class="st">2026년 부서별 × 월별 구매현황<span class="unit">금액단위 : 백만원</span></div>
+<div class="sec"><div class="st">2026년 부서별 × 월별 구매현황<span class="unit">(단위 : 백만원)</span></div>
 <div class="dm-wrap"><table><thead><tr><th>부서</th><th>1월</th><th>2월</th><th>3월</th><th>4월</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th><th>12월</th><th>합계</th></tr></thead><tbody><tr><td>솔루션사업부</td><td class="mn">1,888</td><td class="mn">3,231</td><td class="mn">73</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">5,193</td></tr>
 <tr><td>디지털제조사업부</td><td class="mn">259</td><td class="mn">117</td><td class="mn">319</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">695</td></tr>
 <tr><td>AM시스템개발부</td><td class="mn">48</td><td class="mn">25</td><td class="mn">133</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">206</td></tr>
@@ -84,7 +84,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>경영관리부</td><td class="mn">24</td><td class="mn">9</td><td class="mn">10</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td class="mn" style="font-weight:700">42</td></tr>
 <tr class="tot"><td>합계</td><td class="mn">2,248</td><td class="mn">3,396</td><td class="mn">543</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">6,187</td></tr></tbody></table></div></div>
 
-<div class="sec"><div class="st">2026년 항목분류별 구매현황<span class="unit">금액단위 : 백만원</span></div>
+<div class="sec"><div class="st">2026년 항목분류별 구매현황<span class="unit">(단위 : 백만원)</span></div>
 <div class="cr"><div><table><thead><tr><th>항목</th><th>건수</th><th>합계</th><th>비율</th></tr></thead><tbody><tr><td>모니터링</td><td>53</td><td class="mn">5,075</td><td>82.0%</td></tr>
 <tr><td>미분류</td><td>168</td><td class="mn">550</td><td>8.9%</td></tr>
 <tr><td>기타</td><td>55</td><td class="mn">113</td><td>1.8%</td></tr>
@@ -102,7 +102,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr class="tot"><td>합계</td><td>485</td><td class="mn">6,187</td><td>100%</td></tr></tbody></table></div>
 <div class="chart-box-lg"><canvas id="ci2026"></canvas></div></div></div>
 
-<div class="sec"><div class="st">2026년 주요 구매업체 TOP 20<span class="unit">금액단위 : 백만원</span></div>
+<div class="sec"><div class="st">2026년 주요 구매업체 TOP 20<span class="unit">(단위 : 백만원)</span></div>
 <div class="dm-wrap"><table><thead><tr><th>순위</th><th>업체명</th><th>건수</th><th>총금액</th><th>1월</th><th>2월</th><th>3월</th><th>4월</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th><th>12월</th></tr></thead><tbody><tr><td style="color:#1B6FD8;font-weight:700">1</td><td style="text-align:left;font-weight:600">COHERENT</td><td>1</td><td class="mn">2,658</td><td style="color:#CBD5E1">-</td><td class="mn">2,658</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr><td style="color:#1B6FD8;font-weight:700">2</td><td style="text-align:left;font-weight:600">메탈쓰리디</td><td>1</td><td class="mn">1,147</td><td class="mn">1,147</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr><td style="color:#1B6FD8;font-weight:700">3</td><td style="text-align:left;font-weight:600">퓨전테크놀로지</td><td>4</td><td class="mn">374</td><td class="mn">349</td><td class="mn">19</td><td class="mn">6</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
@@ -125,7 +125,7 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td style="color:#1B6FD8;font-weight:700">20</td><td style="text-align:left;font-weight:600">다온</td><td>3</td><td class="mn">21</td><td class="mn">21</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td><td style="color:#CBD5E1">-</td></tr>
 <tr class="tot"><td></td><td>TOP 20 합계</td><td>66</td><td class="mn">5,404</td><td class="mn">1,894</td><td class="mn">3,163</td><td class="mn">346</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td></tr></tbody></table></div></div>
 
-<div class="sec"><div class="st">2026년 프로젝트별 구매금액 TOP 10<span class="unit">금액단위 : 백만원</span></div>
+<div class="sec"><div class="st">2026년 프로젝트별 구매금액 TOP 10<span class="unit">(단위 : 백만원)</span></div>
 <div class="cr"><div><table><thead><tr><th>프로젝트명</th><th>건수</th><th>합계</th></tr></thead><tbody><tr><td style="text-align:left">디에스세미콘 납품용 레이저 발진기 구매건</td><td>1</td><td class="mn">2,658</td></tr>
 <tr><td style="text-align:left">티모스 금속 3D프린터 구매건</td><td>1</td><td class="mn">1,147</td></tr>
 <tr><td style="text-align:left">모니터링 데이터 설비</td><td>1</td><td class="mn">227</td></tr>
