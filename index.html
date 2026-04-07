@@ -40,7 +40,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-04-07 11:48  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-04-07 12:01  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -196,16 +196,39 @@ else{document.addEventListener('DOMContentLoaded',function(){_waitAndInit();});}
 </div>
 <script>
 (function(){
+  /* Pure JS SHA-256 (works on file:// and http:// without crypto.subtle) */
+  function sha256(s){
+    function rr(n,x){return(x>>>n)|(x<<(32-n));}
+    var K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+           0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+           0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+           0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+           0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+           0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+           0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+           0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+    var H0=0x6a09e667,H1=0xbb67ae85,H2=0x3c6ef372,H3=0xa54ff53a,H4=0x510e527f,H5=0x9b05688c,H6=0x1f83d9ab,H7=0x5be0cd19;
+    var msg=[];
+    for(var i=0;i<s.length;i++){var c=s.charCodeAt(i);if(c<128)msg.push(c);else if(c<2048){msg.push((c>>6)|192);msg.push((c&63)|128);}else{msg.push((c>>12)|224);msg.push(((c>>6)&63)|128);msg.push((c&63)|128);}}
+    var l=msg.length*8;msg.push(0x80);while(msg.length%64!==56)msg.push(0);
+    msg.push(0,0,0,0);msg.push((l>>>24)&0xff,(l>>>16)&0xff,(l>>>8)&0xff,l&0xff);
+    for(var off=0;off<msg.length;off+=64){
+      var W=[];for(var t=0;t<16;t++)W[t]=(msg[off+t*4]<<24)|(msg[off+t*4+1]<<16)|(msg[off+t*4+2]<<8)|msg[off+t*4+3];
+      for(var t=16;t<64;t++){var s0=rr(7,W[t-15])^rr(18,W[t-15])^(W[t-15]>>>3);var s1=rr(17,W[t-2])^rr(19,W[t-2])^(W[t-2]>>>10);W[t]=(W[t-16]+s0+W[t-7]+s1)|0;}
+      var a=H0,b=H1,c=H2,d=H3,e=H4,f=H5,g=H6,h=H7;
+      for(var t=0;t<64;t++){var S1=rr(6,e)^rr(11,e)^rr(25,e);var ch=(e&f)^(~e&g);var tmp=(h+S1+ch+K[t]+W[t])|0;var S0=rr(2,a)^rr(13,a)^rr(22,a);var maj=(a&b)^(a&c)^(b&c);h=g;g=f;f=e;e=(d+tmp)|0;d=c;c=b;b=a;a=(tmp+S0+maj)|0;}
+      H0=(H0+a)|0;H1=(H1+b)|0;H2=(H2+c)|0;H3=(H3+d)|0;H4=(H4+e)|0;H5=(H5+f)|0;H6=(H6+g)|0;H7=(H7+h)|0;
+    }
+    return [H0,H1,H2,H3,H4,H5,H6,H7].map(function(v){return('00000000'+((v<0?v+4294967296:v).toString(16))).slice(-8);}).join('');
+  }
   var H='32b98fce41449aec2e28deb0ad553fa51f65c184adb3e321dcb468211ad971c6';
   function unlock(){document.getElementById('_pw_wall').remove();sessionStorage.setItem('_pms_auth',H);}
   if(sessionStorage.getItem('_pms_auth')===H){unlock();return;}
   function check(){
     var v=document.getElementById('_pw_in').value;
     if(!v)return;
-    crypto.subtle.digest('SHA-256',new TextEncoder().encode(v)).then(function(b){
-      var h=Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('');
-      if(h===H){unlock();}else{var e=document.getElementById('_pw_err');e.style.display='block';document.getElementById('_pw_in').value='';}
-    });
+    var h=sha256(v);
+    if(h===H){unlock();}else{var e=document.getElementById('_pw_err');e.style.display='block';document.getElementById('_pw_in').value='';}
   }
   document.getElementById('_pw_btn').addEventListener('click',check);
   document.getElementById('_pw_in').addEventListener('keydown',function(e){if(e.key==='Enter')check();});
