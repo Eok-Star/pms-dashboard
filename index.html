@@ -40,7 +40,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-04-07 12:06  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-04-07 18:19  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -188,28 +188,13 @@ else{document.addEventListener('DOMContentLoaded',function(){_waitAndInit();});}
 <div style="background:#1A2E55;border-radius:14px;padding:40px 36px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.6);min-width:320px">
 <div style="font-size:26px;font-weight:800;color:#fff;margin-bottom:6px">PMS 대시보드</div>
 <div style="color:#94A3B8;font-size:13px;margin-bottom:24px">접근하려면 비밀번호를 입력하세요</div>
-<input id="_pw_in" type="password" placeholder="비밀번호" autocomplete="current-password"
-  style="width:100%;box-sizing:border-box;padding:11px 14px;border-radius:8px;border:1.5px solid #334155;background:#0F2044;color:#fff;font-size:15px;outline:none;margin-bottom:14px">
-<button id="_pw_btn" onclick="_pwCheck()" style="width:100%;padding:11px;border-radius:8px;border:none;background:#2563EB;color:#fff;font-size:15px;font-weight:700;cursor:pointer">확인</button>
+<input id="_pw_in" type="password" placeholder="비밀번호"
+  style="width:100%;box-sizing:border-box;padding:11px 14px;border-radius:8px;border:1.5px solid #334155;background:#0F2044;color:#fff;font-size:15px;outline:none;margin-bottom:14px"
+  onkeyup="if(event.keyCode==13||event.key=='Enter')document.getElementById('_pw_btn').click();">
+<button id="_pw_btn" style="width:100%;padding:11px;border-radius:8px;border:none;background:#2563EB;color:#fff;font-size:15px;font-weight:700;cursor:pointer"
+  onclick="var v=document.getElementById('_pw_in').value,k=[112,109,115,50,48,50,54],m='';for(var i=0;i<k.length;i++)m+=String.fromCharCode(k[i]);if(v===m){document.getElementById('_pw_wall').style.display='none';}else{document.getElementById('_pw_err').style.display='block';document.getElementById('_pw_in').value='';}">확인</button>
 <div id="_pw_err" style="color:#EF4444;font-size:12px;margin-top:10px;display:none">비밀번호가 올바르지 않습니다.</div>
 </div>
 </div>
-<script>
-var _K='cG1zMjAyNg==';
-function _pwUnlock(){var w=document.getElementById('_pw_wall');if(w)w.parentNode.removeChild(w);try{sessionStorage.setItem('_pa','1');}catch(e){}}
-try{if(sessionStorage.getItem('_pa')==='1'){_pwUnlock();}}catch(e){}
-function _pwCheck(){
-  var v=document.getElementById('_pw_in').value;
-  if(!v)return;
-  try{
-    if(btoa(unescape(encodeURIComponent(v)))===_K){_pwUnlock();}
-    else{document.getElementById('_pw_err').style.display='block';document.getElementById('_pw_in').value='';}
-  }catch(x){
-    document.getElementById('_pw_err').style.display='block';document.getElementById('_pw_in').value='';
-  }
-}
-document.getElementById('_pw_in').onkeydown=function(e){if(e.key==='Enter'||e.keyCode===13)_pwCheck();};
-
-</script>
 </body>
 </html>
