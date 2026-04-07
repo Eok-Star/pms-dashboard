@@ -40,15 +40,15 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-04-07 18:19  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-04-07 18:27  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
 <div class="cards">
 <div class="cd b"><div class="lb">총 품의건수</div><div class="vl">485 건</div></div>
-<div class="cd c1"><div class="lb">국내 구매</div><div class="sub-info">453 건</div><div class="vl">3,335</div></div>
-<div class="cd c2"><div class="lb">해외 구매</div><div class="sub-info">32 건</div><div class="vl">2,853</div></div>
-<div class="cd p"><div class="lb">총 집행금액</div><div class="vl">6,187</div></div>
+<div class="cd c1"><div class="lb">국내 구매</div><div class="sub-info">453 건</div><div class="vl">3,335 백만원</div></div>
+<div class="cd c2"><div class="lb">해외 구매</div><div class="sub-info">32 건</div><div class="vl">2,853 백만원</div></div>
+<div class="cd p"><div class="lb">총 집행금액</div><div class="vl">6,187 백만원</div></div>
 </div>
 
 <div class="sec"><div class="st">2026년 월별 구매현황<span class="unit">금액단위 : 백만원</span></div>
@@ -184,17 +184,39 @@ function _waitAndInit(){
 if(document.readyState==='complete'||document.readyState==='interactive'){setTimeout(_waitAndInit,50);}
 else{document.addEventListener('DOMContentLoaded',function(){_waitAndInit();});}
 </script>
-<div id="_pw_wall" style="position:fixed;inset:0;z-index:9999;background:rgba(15,32,68,.97);display:flex;align-items:center;justify-content:center">
-<div style="background:#1A2E55;border-radius:14px;padding:40px 36px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.6);min-width:320px">
+<div id="pw" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(15,32,68,.97);display:flex;align-items:center;justify-content:center">
+<div style="background:#1A2E55;border-radius:14px;padding:40px 36px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.6);min-width:300px;max-width:90vw">
 <div style="font-size:26px;font-weight:800;color:#fff;margin-bottom:6px">PMS 대시보드</div>
 <div style="color:#94A3B8;font-size:13px;margin-bottom:24px">접근하려면 비밀번호를 입력하세요</div>
-<input id="_pw_in" type="password" placeholder="비밀번호"
-  style="width:100%;box-sizing:border-box;padding:11px 14px;border-radius:8px;border:1.5px solid #334155;background:#0F2044;color:#fff;font-size:15px;outline:none;margin-bottom:14px"
-  onkeyup="if(event.keyCode==13||event.key=='Enter')document.getElementById('_pw_btn').click();">
-<button id="_pw_btn" style="width:100%;padding:11px;border-radius:8px;border:none;background:#2563EB;color:#fff;font-size:15px;font-weight:700;cursor:pointer"
-  onclick="var v=document.getElementById('_pw_in').value,k=[112,109,115,50,48,50,54],m='';for(var i=0;i<k.length;i++)m+=String.fromCharCode(k[i]);if(v===m){document.getElementById('_pw_wall').style.display='none';}else{document.getElementById('_pw_err').style.display='block';document.getElementById('_pw_in').value='';}">확인</button>
-<div id="_pw_err" style="color:#EF4444;font-size:12px;margin-top:10px;display:none">비밀번호가 올바르지 않습니다.</div>
+<input id="pi" type="password" placeholder="비밀번호"
+  style="width:100%;box-sizing:border-box;padding:11px 14px;border-radius:8px;border:1.5px solid #334155;background:#0F2044;color:#fff;font-size:15px;outline:none;margin-bottom:14px">
+<button id="pb" type="button"
+  style="width:100%;padding:11px;border-radius:8px;border:none;background:#2563EB;color:#fff;font-size:15px;font-weight:700;cursor:pointer">확인</button>
+<div id="pe" style="color:#EF4444;font-size:12px;margin-top:10px;display:none">비밀번호가 올바르지 않습니다.</div>
 </div>
 </div>
+<script type="text/javascript">
+(function(){
+  var p='pms2026';
+  var btn=document.getElementById('pb');
+  var inp=document.getElementById('pi');
+  var wall=document.getElementById('pw');
+  var err=document.getElementById('pe');
+  function go(){
+    var v=inp.value;
+    if(v===p){
+      wall.style.display='none';
+    }else{
+      err.style.display='block';
+      inp.value='';
+    }
+  }
+  btn.onclick=go;
+  inp.onkeydown=function(e){
+    var k=e.keyCode||e.which;
+    if(k===13)go();
+  };
+})();
+</script>
 </body>
 </html>
