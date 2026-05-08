@@ -9,6 +9,11 @@ body{font-family:'Malgun Gothic','Segoe UI',sans-serif;background:#F1F5F9;color:
 .hdr{background:linear-gradient(135deg,#0F2044,#1B6FD8);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
 .hdr h1{font-size:20px;letter-spacing:1px}.hdr .sub{font-size:12px;color:#94A3C8;margin-top:2px}
 .hdr .note{font-size:11px;color:#94A3C8;margin-top:1px}
+.hdr .live{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#4ADE80;margin-left:12px}
+.hdr .live .dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hdr .refresh-info{font-size:11px;color:#94A3C8;text-align:right}
+.hdr .refresh-info #countdown{color:#4ADE80;font-weight:600}
 .yr-bar{display:flex;gap:8px;padding:14px 22px;max-width:1600px;margin:0 auto}
 .yr-btn{padding:8px 22px;border:2px solid #1B6FD8;border-radius:8px;background:#fff;color:#1B6FD8;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
 .yr-btn:hover{background:#DBEAFE}
@@ -40,7 +45,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드</h1><div class="sub">최종 업데이트: 2026-05-08 16:32  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-05-08 16:40  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -216,6 +221,19 @@ else{document.addEventListener('DOMContentLoaded',function(){_waitAndInit();});}
     var k=e.keyCode||e.which;
     if(k===13)go();
   };
+})();
+</script>
+<script>
+(function(){
+  var INTERVAL=300;
+  var left=INTERVAL;
+  var el=document.getElementById('countdown');
+  function fmt(s){var m=Math.floor(s/60);var ss=s%60;return m+':'+(ss<10?'0':'')+ss;}
+  setInterval(function(){
+    left--;
+    if(el)el.textContent=fmt(left);
+    if(left<=0)location.reload();
+  },1000);
 })();
 </script>
 </body>
