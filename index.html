@@ -45,7 +45,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-05-08 17:48  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-05-08 17:58  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -94,8 +94,8 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>일반비품</td><td>119</td><td class="mn">2,413</td><td>26.6%</td></tr>
 <tr><td>기계장치(자산)</td><td>24</td><td class="mn">2,388</td><td>26.3%</td></tr>
 <tr><td>기타</td><td>254</td><td class="mn">841</td><td>9.3%</td></tr>
-<tr><td>출력물생산</td><td>74</td><td class="mn">242</td><td>2.7%</td></tr>
-<tr><td>장비제작</td><td>65</td><td class="mn">242</td><td>2.7%</td></tr>
+<tr><td>장비제작</td><td>77</td><td class="mn">249</td><td>2.7%</td></tr>
+<tr><td>출력물생산</td><td>62</td><td class="mn">234</td><td>2.6%</td></tr>
 <tr><td>고객납품 및 수리</td><td>44</td><td class="mn">194</td><td>2.1%</td></tr>
 <tr><td>연구개발</td><td>35</td><td class="mn">72</td><td>0.8%</td></tr>
 <tr class="tot"><td>합계</td><td>625</td><td class="mn">9,075</td><td>100%</td></tr></tbody></table></div>
@@ -143,7 +143,7 @@ tr:nth-child(even){background:#F8FAFC}
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
-var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2247849157, 3429621531, 592215489, 2805585989, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "경영관리부", "연구소"], "dv": [6162385067, 2385402438, 296685673, 135012194, 95786794], "il": ["모니터링", "일반비품", "기계장치(자산)", "기타", "출력물생산", "장비제작", "고객납품 및 수리", "연구개발"], "iv": [2685511793, 2413174335, 2387712091, 840591337, 241530537, 241525039, 193648843, 71578191], "ic": ["#84CC16", "#EC4899", "#06B6D4", "#64748B", "#10B981", "#F97316", "#14B8A6", "#6366F1"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "양산 공정 구축", "티모스 금속 3D프린터 구매건", "유비파이 HP 3D프린터 도입 건", "SLA 주요 부품 매입 건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건", "열교환기 구리 출력 및 테스트", "3차원출력서비스"], "pv": [2658248344, 1485000000, 1147300000, 521983000, 275000000, 226600000, 220000000, 178750000, 176000000, 170500000]}};
+var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2247849157, 3429621531, 592215489, 2805585989, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "경영관리부", "연구소"], "dv": [6162385067, 2385402438, 296685673, 135012194, 95786794], "il": ["모니터링", "일반비품", "기계장치(자산)", "기타", "장비제작", "출력물생산", "고객납품 및 수리", "연구개발"], "iv": [2685511793, 2413174335, 2387712091, 840591337, 248706468, 234349108, 193648843, 71578191], "ic": ["#84CC16", "#EC4899", "#06B6D4", "#64748B", "#F97316", "#10B981", "#14B8A6", "#6366F1"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "양산 공정 구축", "티모스 금속 3D프린터 구매건", "유비파이 HP 3D프린터 도입 건", "SLA 주요 부품 매입 건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건", "열교환기 구리 출력 및 테스트", "3차원출력서비스"], "pv": [2658248344, 1485000000, 1147300000, 521983000, 275000000, 226600000, 220000000, 178750000, 176000000, 170500000]}};
 var _charts={};
 var fM=function(v){var m=Math.round(v/1e6);return m>0?m.toLocaleString():'-';};
 function _mkChart(id,cfg){
