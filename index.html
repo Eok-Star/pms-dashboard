@@ -45,7 +45,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-05-08 17:08  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-05-08 17:38  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -90,20 +90,20 @@ tr:nth-child(even){background:#F8FAFC}
 <tr class="tot"><td>합계</td><td class="mn">2,248</td><td class="mn">3,430</td><td class="mn">592</td><td class="mn">2,806</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">9,075</td></tr></tbody></table></div></div>
 
 <div class="sec"><div class="st">2026년 항목분류별 구매현황 <span style="font-size:12px;font-weight:400;color:#64748B">(단위 : 백만원)</span></div>
-<div class="cr"><div><table><thead><tr><th>항목</th><th>건수</th><th>합계</th><th>비율</th></tr></thead><tbody><tr><td>모니터링</td><td>53</td><td class="mn">5,075</td><td>55.9%</td></tr>
-<tr><td>미분류</td><td>308</td><td class="mn">3,438</td><td>37.9%</td></tr>
-<tr><td>기타</td><td>55</td><td class="mn">113</td><td>1.2%</td></tr>
-<tr><td>원자재</td><td>13</td><td class="mn">97</td><td>1.1%</td></tr>
-<tr><td>소프트웨어</td><td>10</td><td class="mn">95</td><td>1.0%</td></tr>
-<tr><td>외주가공</td><td>33</td><td class="mn">64</td><td>0.7%</td></tr>
-<tr><td>자산</td><td>37</td><td class="mn">51</td><td>0.6%</td></tr>
-<tr><td>소모품</td><td>46</td><td class="mn">33</td><td>0.4%</td></tr>
-<tr><td>기계부품</td><td>24</td><td class="mn">29</td><td>0.3%</td></tr>
+<div class="cr"><div><table><thead><tr><th>항목</th><th>건수</th><th>합계</th><th>비율</th></tr></thead><tbody><tr><td>모니터링</td><td>56</td><td class="mn">5,089</td><td>56.1%</td></tr>
+<tr><td>기계장치</td><td>19</td><td class="mn">2,173</td><td>23.9%</td></tr>
+<tr><td>기타</td><td>204</td><td class="mn">676</td><td>7.5%</td></tr>
+<tr><td>비품</td><td>55</td><td class="mn">341</td><td>3.8%</td></tr>
+<tr><td>고객대응</td><td>43</td><td class="mn">169</td><td>1.9%</td></tr>
+<tr><td>외주가공</td><td>64</td><td class="mn">131</td><td>1.4%</td></tr>
+<tr><td>기계부품</td><td>31</td><td class="mn">127</td><td>1.4%</td></tr>
+<tr><td>소프트웨어</td><td>30</td><td class="mn">117</td><td>1.3%</td></tr>
+<tr><td>원자재</td><td>15</td><td class="mn">98</td><td>1.1%</td></tr>
+<tr><td>자산</td><td>40</td><td class="mn">55</td><td>0.6%</td></tr>
+<tr><td>소모품</td><td>54</td><td class="mn">38</td><td>0.4%</td></tr>
 <tr><td>부자재</td><td>10</td><td class="mn">26</td><td>0.3%</td></tr>
 <tr><td>전시회</td><td>2</td><td class="mn">21</td><td>0.2%</td></tr>
 <tr><td>공사</td><td>2</td><td class="mn">12</td><td>0.1%</td></tr>
-<tr><td>비품</td><td>18</td><td class="mn">12</td><td>0.1%</td></tr>
-<tr><td>고객대응</td><td>14</td><td class="mn">9</td><td>0.1%</td></tr>
 <tr class="tot"><td>합계</td><td>625</td><td class="mn">9,075</td><td>100%</td></tr></tbody></table></div>
 <div class="chart-box-lg"><canvas id="ci2026"></canvas></div></div></div>
 
@@ -149,7 +149,7 @@ tr:nth-child(even){background:#F8FAFC}
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
-var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2247849157, 3429621531, 592215489, 2805585992, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "경영관리부", "연구소"], "dv": [6162385069, 2385402439, 296685673, 135012194, 95786794], "il": ["모니터링", "기타", "원자재", "소프트웨어", "외주가공", "자산", "소모품", "기계부품", "부자재", "전시회", "공사", "비품", "고객대응"], "iv": [5074977966, 113068340, 97476640, 95263998, 63627719, 50509228, 32781025, 29470496, 25864800, 20823000, 12408000, 11606605, 9341171], "ic": ["#84CC16", "#64748B", "#EF4444", "#6366F1", "#10B981", "#8B5CF6", "#1B6FD8", "#F97316", "#F59E0B", "#FB923C", "#A855F7", "#EC4899", "#14B8A6"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "양산 공정 구축", "티모스 금속 3D프린터 구매건", "유비파이 HP 3D프린터 도입 건", "SLA 주요 부품 매입 건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건", "열교환기 구리 출력 및 테스트", "3차원출력서비스"], "pv": [2658248344, 1485000000, 1147300000, 521983000, 275000000, 226600000, 220000000, 178750000, 176000000, 170500000]}};
+var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2247849157, 3429621531, 592215489, 2805585989, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "경영관리부", "연구소"], "dv": [6162385067, 2385402438, 296685673, 135012194, 95786794], "il": ["모니터링", "기계장치", "기타", "비품", "고객대응", "외주가공", "기계부품", "소프트웨어", "원자재", "자산", "소모품", "부자재", "전시회", "공사"], "iv": [5089254366, 2172817860, 676406559, 341417324, 169471170, 131289749, 127150216, 117258904, 98336140, 54920187, 37853891, 25864800, 20823000, 12408000], "ic": ["#84CC16", "#06B6D4", "#64748B", "#EC4899", "#14B8A6", "#10B981", "#F97316", "#6366F1", "#EF4444", "#8B5CF6", "#1B6FD8", "#F59E0B", "#FB923C", "#A855F7"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "양산 공정 구축", "티모스 금속 3D프린터 구매건", "유비파이 HP 3D프린터 도입 건", "SLA 주요 부품 매입 건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건", "열교환기 구리 출력 및 테스트", "3차원출력서비스"], "pv": [2658248344, 1485000000, 1147300000, 521983000, 275000000, 226600000, 220000000, 178750000, 176000000, 170500000]}};
 var _charts={};
 var fM=function(v){var m=Math.round(v/1e6);return m>0?m.toLocaleString():'-';};
 function _mkChart(id,cfg){
