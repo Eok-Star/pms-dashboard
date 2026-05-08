@@ -45,7 +45,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-05-08 18:10  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-05-08 18:37  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -90,24 +90,19 @@ tr:nth-child(even){background:#F8FAFC}
 <tr class="tot"><td>합계</td><td class="mn">2,248</td><td class="mn">3,430</td><td class="mn">592</td><td class="mn">2,806</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">-</td><td class="mn">9,075</td></tr></tbody></table></div></div>
 
 <div class="sec"><div class="st">2026년 항목분류별 구매현황 <span style="font-size:12px;font-weight:400;color:#64748B">(단위 : 백만원)</span></div>
-<div class="cr"><div><table><thead><tr><th>항목</th><th>건수</th><th>합계</th><th>비율</th></tr></thead><tbody><tr><td>모니터링</td><td>5</td><td class="mn">2,669</td><td>29.4%</td></tr>
-<tr><td>기계장비</td><td>17</td><td class="mn">2,370</td><td>26.1%</td></tr>
-<tr><td>소모품</td><td>33</td><td class="mn">1,219</td><td>13.4%</td></tr>
-<tr><td>일반 및 비품</td><td>59</td><td class="mn">1,157</td><td>12.7%</td></tr>
-<tr><td>기타</td><td>242</td><td class="mn">828</td><td>9.1%</td></tr>
+<div class="cr"><div><table><thead><tr><th>항목</th><th>건수</th><th>합계</th><th>비율</th></tr></thead><tbody><tr><td>고객대응 및 납품</td><td>67</td><td class="mn">2,774</td><td>30.6%</td></tr>
+<tr><td>모니터링</td><td>5</td><td class="mn">2,669</td><td>29.4%</td></tr>
+<tr><td>생산 및 제조관련</td><td>115</td><td class="mn">1,957</td><td>21.6%</td></tr>
+<tr><td>기타</td><td>206</td><td class="mn">612</td><td>6.7%</td></tr>
+<tr><td>재판매</td><td>2</td><td class="mn">527</td><td>5.8%</td></tr>
 <tr><td>고객납품 및 수리</td><td>44</td><td class="mn">194</td><td>2.1%</td></tr>
-<tr><td>장비부품</td><td>45</td><td class="mn">156</td><td>1.7%</td></tr>
-<tr><td>원/부자재</td><td>24</td><td class="mn">154</td><td>1.7%</td></tr>
-<tr><td>장비제작</td><td>20</td><td class="mn">85</td><td>0.9%</td></tr>
 <tr><td>출력물생산</td><td>38</td><td class="mn">80</td><td>0.9%</td></tr>
-<tr><td>미분류</td><td>24</td><td class="mn">47</td><td>0.5%</td></tr>
-<tr><td>소프트웨어</td><td>5</td><td class="mn">39</td><td>0.4%</td></tr>
+<tr><td>장비제작</td><td>18</td><td class="mn">79</td><td>0.9%</td></tr>
+<tr><td>일반 및 비품</td><td>53</td><td class="mn">70</td><td>0.8%</td></tr>
+<tr><td>미분류</td><td>22</td><td class="mn">44</td><td>0.5%</td></tr>
 <tr><td>연구개발</td><td>30</td><td class="mn">32</td><td>0.4%</td></tr>
-<tr><td>일반비품</td><td>18</td><td class="mn">26</td><td>0.3%</td></tr>
-<tr><td>가공품</td><td>12</td><td class="mn">7</td><td>0.1%</td></tr>
+<tr><td>일반비품</td><td>21</td><td class="mn">30</td><td>0.3%</td></tr>
 <tr><td>기계장치(자산)</td><td>4</td><td class="mn">7</td><td>0.1%</td></tr>
-<tr><td>설비</td><td>1</td><td class="mn">4</td><td>0.0%</td></tr>
-<tr><td>공구류</td><td>4</td><td class="mn">1</td><td>0.0%</td></tr>
 <tr class="tot"><td>합계</td><td>625</td><td class="mn">9,075</td><td>100%</td></tr></tbody></table></div>
 <div class="chart-box-lg"><canvas id="ci2026"></canvas></div></div></div>
 
@@ -153,7 +148,7 @@ tr:nth-child(even){background:#F8FAFC}
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
-var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2247849157, 3429621531, 592215489, 2805585989, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "경영관리부", "연구소"], "dv": [6162385067, 2385402438, 296685673, 135012194, 95786794], "il": ["모니터링", "기계장비", "소모품", "일반 및 비품", "기타", "고객납품 및 수리", "장비부품", "원/부자재", "장비제작", "출력물생산", "소프트웨어", "연구개발", "일반비품", "가공품", "기계장치(자산)", "설비", "공구류"], "iv": [2668895344, 2369983132, 1218734780, 1156512916, 827680879, 193648843, 156126051, 154111357, 85398988, 80237751, 39157109, 32421082, 26132719, 7181429, 6680959, 4048000, 1070651], "ic": ["#84CC16", "#0891B2", "#1B6FD8", "#D946EF", "#64748B", "#14B8A6", "#F59E0B", "#EF4444", "#F97316", "#10B981", "#8B5CF6", "#6366F1", "#EC4899", "#A855F7", "#06B6D4", "#059669", "#0EA5E9"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "양산 공정 구축", "티모스 금속 3D프린터 구매건", "유비파이 HP 3D프린터 도입 건", "SLA 주요 부품 매입 건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건", "열교환기 구리 출력 및 테스트", "3차원출력서비스"], "pv": [2658248344, 1485000000, 1147300000, 521983000, 275000000, 226600000, 220000000, 178750000, 176000000, 170500000]}};
+var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2247849157, 3429621531, 592215489, 2805585989, 0, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "경영관리부", "연구소"], "dv": [6162385067, 2385402438, 296685673, 135012194, 95786794], "il": ["고객대응 및 납품", "모니터링", "생산 및 제조관련", "기타", "재판매", "고객납품 및 수리", "출력물생산", "장비제작", "일반 및 비품", "연구개발", "일반비품", "기계장치(자산)"], "iv": [2774245140, 2668895344, 1957051290, 612021027, 526772199, 193648843, 80237751, 79086861, 70058775, 32421082, 29901889, 6680959], "ic": ["#0891B2", "#84CC16", "#EF4444", "#64748B", "#F59E0B", "#14B8A6", "#10B981", "#F97316", "#D946EF", "#6366F1", "#EC4899", "#06B6D4"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "양산 공정 구축", "티모스 금속 3D프린터 구매건", "유비파이 HP 3D프린터 도입 건", "SLA 주요 부품 매입 건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건", "열교환기 구리 출력 및 테스트", "3차원출력서비스"], "pv": [2658248344, 1485000000, 1147300000, 521983000, 275000000, 226600000, 220000000, 178750000, 176000000, 170500000]}};
 var _charts={};
 var fM=function(v){var m=Math.round(v/1e6);return m>0?m.toLocaleString():'-';};
 function _mkChart(id,cfg){
