@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>구매관리 시스템(PMS) 대시보드</title>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Malgun Gothic','Segoe UI',sans-serif;background:#F1F5F9;color:#1E293B}
@@ -48,7 +51,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}.item-chart-wrap{flex-direction:column;height:auto}.item-pie{flex:none;height:300px}.item-bar{flex:none;height:350px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-06-18 21:28  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-06-19 07:48  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -238,7 +241,7 @@ else{document.addEventListener('DOMContentLoaded',function(){_waitAndInit();});}
   setInterval(function(){
     left--;
     if(el)el.textContent=fmt(left);
-    if(left<=0)location.reload();
+    if(left<=0)location.replace(location.pathname+'?t='+Date.now());
   },1000);
 })();
 </script>
