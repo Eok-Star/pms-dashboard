@@ -48,7 +48,7 @@ tr:nth-child(even){background:#F8FAFC}
 @media(max-width:768px){.cr{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.hdr h1{font-size:16px}.yr-btn{padding:6px 14px;font-size:13px}.item-chart-wrap{flex-direction:column;height:auto}.item-pie{flex:none;height:300px}.item-bar{flex:none;height:350px}}</style>
 </head>
 <body>
-<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-06-18 20:44  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
+<div class="hdr"><div><h1>LINCSOLUTION 구매현황 대시보드<span class="live"><span class="dot"></span>LIVE</span></h1><div class="sub">최종 업데이트: 2026-06-18 21:00  |  2026년</div><div class="note">※ 현 대시보드는 구매품의서 기준으로 실제 집행과 다를 수 있음</div></div><div class="refresh-info">자동 새로고침: <span id="countdown">5:00</span></div></div>
 <div class="yr-bar"><button class="yr-btn active" onclick="switchYear(2026)" id="btn2026">2026년</button></div>
 <div class="wrap">
 <div class="yr-sec" id="sec2026" style="display:block">
@@ -106,9 +106,8 @@ tr:nth-child(even){background:#F8FAFC}
 <tr><td>일반 및 비품</td><td>59</td><td class="mn">68</td><td>0.6%</td></tr>
 <tr><td>연구개발</td><td>44</td><td class="mn">41</td><td>0.4%</td></tr>
 <tr><td>일반비품</td><td>33</td><td class="mn">34</td><td>0.3%</td></tr>
-<tr><td>전기 증설 공사</td><td>1</td><td class="mn">18</td><td>0.2%</td></tr>
+<tr><td>미분류</td><td>2</td><td class="mn">18</td><td>0.2%</td></tr>
 <tr><td>기계장치(자산)</td><td>5</td><td class="mn">14</td><td>0.1%</td></tr>
-<tr><td>미분류</td><td>1</td><td class="mn">-</td><td>0.0%</td></tr>
 <tr class="tot"><td>합계</td><td>758</td><td class="mn">11,141</td><td>100%</td></tr></tbody></table></div>
 <div class="item-chart-wrap"><div class="item-pie"><canvas id="ci2026"></canvas></div><div class="item-bar"><canvas id="cib2026"></canvas></div></div></div></div>
 
@@ -154,7 +153,7 @@ tr:nth-child(even){background:#F8FAFC}
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
-var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2037997635, 3401794257, 536220856, 3293646637, 1870914244, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "재경부", "연구소", "경영관리부"], "dv": [6658321010, 3919698326, 299059884, 135540801, 101679668, 26273940], "il": ["생산 및 제조관련", "고객대응 및 납품", "모니터링", "기타", "재판매", "고객납품 및 수리", "출력물생산", "장비제작", "일반 및 비품", "연구개발", "일반비품", "전기 증설 공사", "기계장치(자산)"], "iv": [3384826244, 3283491748, 2713207882, 672322068, 498628792, 200463776, 129679586, 83128021, 67939383, 41096997, 33707409, 18107000, 13879963], "ic": ["#EF4444", "#0891B2", "#84CC16", "#64748B", "#F59E0B", "#14B8A6", "#10B981", "#F97316", "#D946EF", "#6366F1", "#EC4899", "#94A3B8", "#06B6D4"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "양산 공정 구축", "대전 POC 센터 구축", "티모스 금속 3D프린터 구매건", "삼성전자 AM Lab 납품 건", "유비파이 HP 3D프린터 도입 건", "SLA 주요 부품 매입 건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건"], "pv": [2702402072, 1481467127, 1466284120, 1043000000, 727203838, 478430000, 250000000, 206000000, 200000000, 162500000]}};
+var AD = {"2026": {"ml": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], "mv": [2037997633, 3401794256, 536220855, 3293646637, 1870914244, 0, 0, 0, 0, 0, 0, 0], "mc": ["#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#1B6FD8", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0", "#E2E8F0"], "dl": ["솔루션사업부", "디지털제조사업부", "AM시스템개발부", "재경부", "연구소", "경영관리부"], "dv": [6658321008, 3919698325, 299059883, 135540801, 101679668, 26273940], "il": ["생산 및 제조관련", "고객대응 및 납품", "모니터링", "기타", "재판매", "고객납품 및 수리", "출력물생산", "장비제작", "일반 및 비품", "연구개발", "일반비품", "기계장치(자산)"], "iv": [3384826242, 3283491746, 2713207882, 672322068, 498628792, 200463776, 129679586, 83128021, 67939383, 41096997, 33707409, 13879963], "ic": ["#EF4444", "#0891B2", "#84CC16", "#64748B", "#F59E0B", "#14B8A6", "#10B981", "#F97316", "#D946EF", "#6366F1", "#EC4899", "#06B6D4"], "pl": ["디에스세미콘 납품용 레이저 발진기 구매건", "양산 공정 구축", "대전 POC 센터 구축", "티모스 금속 3D프린터 구매건", "삼성전자 AM Lab 납품 건", "유비파이 HP 3D프린터 도입 건", "SLA 주요 부품 매입 건", "모니터링 데이터 설비", "SLA 소재 구매 건", "모멘트 3D프린터 구매건"], "pv": [2702402072, 1481467127, 1466284120, 1043000000, 727203838, 478430000, 250000000, 206000000, 200000000, 162500000]}};
 var _charts={};
 var fM=function(v){var m=Math.round(v/1e6);return m>0?m.toLocaleString():'-';};
 function _mkChart(id,cfg){
